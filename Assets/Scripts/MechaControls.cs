@@ -9,7 +9,7 @@ public class MechaControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mecha = GameObject.Find("Mecha").GetComponent<MechaActions>();
+        mecha = transform.Find("Mecha").GetComponent<MechaActions>();
     }
 
     // Update is called once per frame
