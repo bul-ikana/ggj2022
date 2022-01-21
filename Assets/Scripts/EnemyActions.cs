@@ -19,6 +19,16 @@ public class EnemyActions : MonoBehaviour
         MoveTowardsMecha();
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        MechaActions mecha = collision.GetComponent<MechaActions>();
+
+        if (mecha != null) {
+            mecha.GetComponent<MechaActions>().Damage(300);
+            Die();
+        }
+    }
+
     void MoveTowardsMecha()
     {
         // Move
