@@ -15,24 +15,31 @@ public class MechaControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Rotate
+        mecha.RotateToCursor();
+
+        // Move Up
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            mecha.moveUp();
+            mecha.MoveUp();
         }
 
+        // Move Left
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            mecha.moveLeft();   
+            mecha.MoveLeft();   
         }
 
+        // Move Right
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            mecha.moveRight();
+            mecha.MoveRight();
         }
         
+        // Move Down
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            mecha.moveDown();
-        }   
+            mecha.MoveDown();
+        }
     }
 }

@@ -4,23 +4,34 @@ public class MechaActions : MonoBehaviour
 {
     public float moveSpeed = 5;
 
-    public void moveUp()
+    public void MoveUp()
     {
         transform.position += Vector3.up * moveSpeed * Time.deltaTime;
     }
 
-    public void moveDown()
+    public void MoveDown()
     {
         transform.position += Vector3.up * -moveSpeed * Time.deltaTime;
     }
 
-    public void moveLeft()
+    public void MoveLeft()
     {
         transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
     }
 
-    public void moveRight()
+    public void MoveRight()
     {
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+    }
+
+    public void RotateToCursor()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 objectPos = Camera.main.WorldToScreenPoint (transform.position);
+        mousePos.x = mousePos.x - objectPos.x;
+        mousePos.y = mousePos.y - objectPos.y;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }
