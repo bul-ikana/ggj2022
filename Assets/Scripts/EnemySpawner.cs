@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     {
         Instantiate(
             Resources.Load("EnemyPrefab"),
-            (Vector3)Random.insideUnitCircle.normalized * Random.Range(10, 11) + mecha.transform.position,
+            (Vector3)Random.insideUnitCircle.normalized * Random.Range(10, 20) + mecha.transform.position,
             Quaternion.identity
         );
     }
