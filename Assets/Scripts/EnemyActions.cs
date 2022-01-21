@@ -32,7 +32,7 @@ public class EnemyActions : MonoBehaviour
     void MoveTowardsMecha()
     {
         // Move
-        transform.position = Vector3.MoveTowards(transform.position, mecha.transform.position, speed * 0.01f);
+        transform.position = Vector3.MoveTowards(transform.position, mecha.transform.position, speed *  Time.deltaTime);
 
         // Rotate
         Vector3 direction = mecha.transform.position - transform.position;
