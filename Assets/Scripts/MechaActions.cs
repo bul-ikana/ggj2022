@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MechaMovement : MonoBehaviour
+public class MechaActions : MonoBehaviour
 {
     public float moveSpeed = 5;
 
@@ -22,29 +22,5 @@ public class MechaMovement : MonoBehaviour
     public void moveRight()
     {
         transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.W))
-        {
-            moveUp();
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveLeft();   
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveRight();
-        }
-        
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveDown();
-        }
     }
 }
