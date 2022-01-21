@@ -18,6 +18,12 @@ public class MechaControls : MonoBehaviour
         // Rotate
         mecha.RotateToCursor();
 
+        // Shoot
+        if (Input.GetMouseButtonDown(0))
+        {
+            mecha.Shoot();
+        }
+
         // Move Up
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {

@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class MechaActions : MonoBehaviour
 {
+    Transform shootPoint;
+
+    void Start()
+    {
+        shootPoint = GameObject.Find("ShootPoint").transform;
+    }
+
     public float moveSpeed = 5;
 
     public void MoveUp()
@@ -33,5 +40,10 @@ public class MechaActions : MonoBehaviour
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
+
+    public void Shoot()
+    {
+        Instantiate(Resources.Load("BulletPrefab"), shootPoint.position, shootPoint.rotation);
     }
 }
