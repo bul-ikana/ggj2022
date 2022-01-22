@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MechaActions : MonoBehaviour
 {
+    public int health = 200;
+
     Transform shootPoint;
 
     void Start()
@@ -45,5 +47,18 @@ public class MechaActions : MonoBehaviour
     public void Shoot()
     {
         Instantiate(Resources.Load("BulletPrefab"), shootPoint.position, shootPoint.rotation);
+    }
+
+    public void Damage(int damage) {
+        health -= damage;
+        if (health <= 0) {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(this.gameObject);
+        Application.LoadLevel(Application.loadedLevel);
     }
 }
