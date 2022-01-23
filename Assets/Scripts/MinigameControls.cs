@@ -11,6 +11,7 @@ public class MinigameControls : MonoBehaviour
     private Rigidbody2D playerBody;
     private Collider2D playerCollider;
     private float horizontalMovement = 0.0f;
+    private Vector3 newCameraPosition;
     private ContactPoint2D[] contacts = new ContactPoint2D[10];
     private Vector2 velocityHandler;
 
@@ -38,7 +39,15 @@ public class MinigameControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && verticalNormalSum > 0.0f)
         {
             playerBody.AddForce(new Vector2(0.0f,jumpForce),ForceMode2D.Impulse);
-        }
+        }        
+    }
+
+    void LateUpdate()
+    {
+        newCameraPosition.x = Mathf.Max(0.0f,player.transform.position.x);
+        newCameraPosition.y = Mathf.Max(0.0f,player.transform.position.y);
+        newCameraPosition.z = transform.position.z;
+        transform.position = newCameraPosition;
     }
 
     void FixedUpdate()
