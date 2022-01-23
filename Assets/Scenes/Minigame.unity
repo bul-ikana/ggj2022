@@ -299,6 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1722169511}
   moveSpeed: 10
+  jumpForce: 80
 --- !u!1 &1386380767
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +506,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3171238965136087031, guid: 3dd8e18ae4f25084aa9999ed6e7ebdf8, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3171238965136087037, guid: 3dd8e18ae4f25084aa9999ed6e7ebdf8, type: 3}
       propertyPath: m_Name
       value: FloorMoveEnemy (1)
@@ -545,12 +550,12 @@ Rigidbody2D:
   m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 2
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 5f397a06ea07a084a94846028d693729, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1722169514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -692,6 +697,10 @@ PrefabInstance:
     - target: {fileID: 3171238965136087025, guid: 3dd8e18ae4f25084aa9999ed6e7ebdf8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171238965136087027, guid: 3dd8e18ae4f25084aa9999ed6e7ebdf8, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3171238965136087037, guid: 3dd8e18ae4f25084aa9999ed6e7ebdf8, type: 3}
       propertyPath: m_Name
