@@ -16,6 +16,7 @@ public class MechaControls : MonoBehaviour
     {
         RotateMechaToCursor();
         ListenForMechaShoots();
+        ListenForGates();
         MoveMecha();
     }
 
@@ -66,6 +67,14 @@ public class MechaControls : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             mecha.Shoot();
+        }
+    }
+
+    void ListenForGates()
+    {
+        if (Input.GetMouseButtonDown(1) && mecha.canDisembark)
+        {
+            mecha.Disembark();
         }
     }
 }

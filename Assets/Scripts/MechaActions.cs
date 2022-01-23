@@ -3,6 +3,8 @@ using UnityEngine;
 public class MechaActions : MonoBehaviour
 {
     public int health = 200;
+    public float moveSpeed = 5;
+    public bool canDisembark = false;
 
     Transform shootPoint;
     Rigidbody2D rb;
@@ -12,8 +14,6 @@ public class MechaActions : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         shootPoint = GameObject.Find("ShootPoint").transform;
     }
-
-    public float moveSpeed = 5;
 
     public void Move(Vector2 direction)
     {
@@ -35,6 +35,21 @@ public class MechaActions : MonoBehaviour
         if (health <= 0) {
             Die();
         }
+    }
+
+    public void AllowDisembark()
+    {
+        canDisembark = true;
+    }
+
+    public void DenyDisembark()
+    {
+        canDisembark = false;
+    }
+
+    public void Disembark()
+    {
+        Debug.Log("Change Screen");
     }
 
     void Die()
