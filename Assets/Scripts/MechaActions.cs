@@ -5,32 +5,45 @@ public class MechaActions : MonoBehaviour
     public int health = 200;
 
     Transform shootPoint;
+    Rigidbody2D rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         shootPoint = GameObject.Find("ShootPoint").transform;
     }
 
     public float moveSpeed = 5;
 
+    public void Move(Vector2 direction)
+    {
+        Vector2 move = rb.velocity + direction;
+        rb.velocity = move.normalized * moveSpeed;
+    }
+
     public void MoveUp()
     {
-        transform.position += Vector3.up * moveSpeed * Time.deltaTime;
+        rb.velocity = Vector2.up * moveSpeed;
     }
 
     public void MoveDown()
     {
-        transform.position += Vector3.up * -moveSpeed * Time.deltaTime;
+        rb.velocity = Vector2.up * -moveSpeed;
     }
 
     public void MoveLeft()
     {
-        transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
+        rb.velocity = Vector2.right * -moveSpeed;
     }
 
     public void MoveRight()
     {
-        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        rb.velocity = Vector2.right * moveSpeed;
+    }
+
+    public void Stop()
+    {
+        rb.velocity = Vector2.zero;
     }
 
     public void RotateToCursor()

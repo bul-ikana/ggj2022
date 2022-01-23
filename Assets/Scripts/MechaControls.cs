@@ -25,25 +25,30 @@ public class MechaControls : MonoBehaviour
         // Move Up
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            mecha.MoveUp();
+            mecha.Move(Vector2.up);
         }
 
         // Move Left
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            mecha.MoveLeft();   
+            mecha.Move(Vector2.left);
         }
 
         // Move Right
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            mecha.MoveRight();
+            mecha.Move(Vector2.right);
         }
         
         // Move Down
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            mecha.MoveDown();
+            mecha.Move(Vector2.down);
+        }
+
+        // Stop moving
+        if (!Input.anyKey) {
+            mecha.Stop();
         }
     }
 }
