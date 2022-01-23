@@ -12,8 +12,7 @@ public class MechaCamera : MonoBehaviour
         mecha = GameObject.Find("Mecha");
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
         newPosition.x = mecha.transform.position.x;
         newPosition.y = mecha.transform.position.y;
@@ -21,21 +20,3 @@ public class MechaCamera : MonoBehaviour
         transform.position = newPosition;
     }
 }
-
-
-// void Start ()
-// {
-//     offset.x = transform.position.x - player.transform.position.x;
-//     offset.z = transform.position.z - player.transform.position.z;
-//     newtrans=transform.position;
-// //not taking y as we won't update y position. 
-
-// }
-// void LateUpdate ()
-// {
-// newtrans.x= player.transform.position.x + offset.x;
-// newtrans.z= player.transform.position.z + offset.z;
-// transform.position = newtrans;
-// }
-
-// }

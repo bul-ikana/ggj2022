@@ -5,50 +5,67 @@ using UnityEngine;
 public class MechaControls : MonoBehaviour
 {
     MechaActions mecha;
+    Vector2 direction;
     
     void Start()
     {
         mecha = GameObject.Find("Mecha").GetComponent<MechaActions>();
     }
 
-    void Update()
+    void LateUpdate()
     {
-        // Rotate
-        mecha.RotateToCursor();
+        RotateMechaToCursor();
+        ListenForMechaShoots();
+        MoveMecha();
+    }
 
-        // Shoot
-        if (Input.GetMouseButtonDown(0))
-        {
-            mecha.Shoot();
-        }
+    void MoveMecha()
+    {
+        direction = Vector2.zero;
 
         // Move Up
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            mecha.Move(Vector2.up);
+            direction += Vector2.up;
         }
 
         // Move Left
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            mecha.Move(Vector2.left);
+            direction += Vector2.left;
         }
 
         // Move Right
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            mecha.Move(Vector2.right);
+            direction += Vector2.right;
         }
         
         // Move Down
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            mecha.Move(Vector2.down);
+            direction += Vector2.down;
         }
 
-        // Stop moving
-        if (!Input.anyKey) {
-            mecha.Stop();
+        mecha.Move(direction);
+    }
+
+    void RotateMechaToCursor()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(mecha.transform.position);
+        mousePos.x = mousePos.x - objectPos.x;
+        mousePos.y = mousePos.y - objectPos.y;
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+
+        mecha.Rotate(angle);
+    }
+
+    void ListenForMechaShoots()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            mecha.Shoot();
         }
     }
 }

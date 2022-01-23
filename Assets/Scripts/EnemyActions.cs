@@ -40,7 +40,8 @@ public class EnemyActions : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    public void Damage(int damage) {
+    public void Damage(int damage)
+    {
         health -= damage;
         if (health <= 0) {
             Die();
