@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 701114389}
   - component: {fileID: 701114388}
   - component: {fileID: 701114387}
+  - component: {fileID: 701114390}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -284,6 +285,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &701114390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701114386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2128bbac93cda7e4e9ff9befd93ff2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1722169511}
+  moveSpeed: 10
 --- !u!1 &1386380767
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +429,7 @@ Transform:
   m_LocalScale: {x: 1, y: 10.946801, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!251 &1386380772
 PlatformEffector2D:
@@ -431,7 +446,7 @@ PlatformEffector2D:
   m_RotationalOffset: 270
   m_UseOneWay: 0
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 0
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 0
@@ -444,7 +459,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3171238965136087025, guid: 3dd8e18ae4f25084aa9999ed6e7ebdf8, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3171238965136087025, guid: 3dd8e18ae4f25084aa9999ed6e7ebdf8, type: 3}
       propertyPath: m_LocalScale.y
@@ -527,11 +542,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_AngularDrag: 0
+  m_GravityScale: 2
+  m_Material: {fileID: 6200000, guid: 5f397a06ea07a084a94846028d693729, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -595,11 +610,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722169511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.29, y: -3.46, z: 0}
+  m_LocalPosition: {x: -3.6, y: 3.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1722169517
 BoxCollider2D:
