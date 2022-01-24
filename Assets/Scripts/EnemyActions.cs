@@ -24,7 +24,7 @@ public class EnemyActions : MonoBehaviour
         MechaActions mecha = collision.GetComponent<MechaActions>();
 
         if (mecha != null) {
-            mecha.GetComponent<MechaActions>().Damage(300);
+            mecha.Damage(20);
             Die();
         }
     }
@@ -32,7 +32,7 @@ public class EnemyActions : MonoBehaviour
     void MoveTowardsMecha()
     {
         // Move
-        transform.position = Vector3.MoveTowards(transform.position, mecha.transform.position, speed *  Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, mecha.transform.position, speed * Time.deltaTime);
 
         // Rotate
         Vector3 direction = mecha.transform.position - transform.position;
@@ -40,7 +40,8 @@ public class EnemyActions : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    public void Damage(int damage) {
+    public void Damage(int damage)
+    {
         health -= damage;
         if (health <= 0) {
             Die();
