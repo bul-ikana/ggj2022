@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2647561173940181809}
   - component: {fileID: 2647561173940181808}
   m_Layer: 0
-  m_Name: MinigameMainCamera
+  m_Name: MinigameCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

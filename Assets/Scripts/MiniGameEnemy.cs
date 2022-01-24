@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class MiniGameEnemy : MonoBehaviour
 {
-    private GameObject player;
-    private Rigidbody2D rb;
+    public float impulseForce = 5.0f;
 
-    private float impulseForce = 5.0f;
+    private Rigidbody2D rb;
+    private int direction = -1;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
         rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.AddForce(new Vector2(-impulseForce,0.0f),ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(direction*impulseForce,0.0f),ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
@@ -25,9 +24,12 @@ public class MiniGameEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == player) {
-            rb.AddForce(new Vector2(2*impulseForce,0.0f),ForceMode2D.Impulse);
-            // Application.LoadLevel(Application.loadedLevel);
+        if (collision.tag == "Player") {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+        else if(collision.tag == "MinigameEnemyReverser"){
+            direction = -direction;
+            rb.AddForce(new Vector2(2*direction*impulseForce,0.0f),ForceMode2D.Impulse);
         }
     }
 }
