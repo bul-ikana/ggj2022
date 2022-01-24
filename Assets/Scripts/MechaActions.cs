@@ -3,22 +3,25 @@ using UnityEngine;
 public class MechaActions : MonoBehaviour
 {
     public int health = 200;
+    public int maxHealth = 200;
     public float moveSpeed = 5;
     public bool canDisembark = false;
 
-		private int gateToDisembark = 0;
-  	private GameManagerScript gameManager;
+    private int gateToDisembark = 0;
+    private GameManagerScript gameManager;
     HealthBarActions hb;
     Transform shootPoint;
     Rigidbody2D rb;
 
     void Start()
     {
-    		gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         rb = GetComponent<Rigidbody2D>();
-        hb = GameObject.Find("HealthBar").GetComponent<HealthBarActions>();
-        hb.SetMaxHealth(health);
         shootPoint = GameObject.Find("ShootPoint").transform;
+        hb = GameObject.Find("HealthBar").GetComponent<HealthBarActions>();
+    	gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+        hb.SetMaxHealth(maxHealth);
+        hb.SetHealth(health);
+
     }
 
     public void Move(Vector2 direction)
@@ -36,12 +39,29 @@ public class MechaActions : MonoBehaviour
         Instantiate(Resources.Load("BulletPrefab"), shootPoint.position, shootPoint.rotation);
     }
 
-    public void Damage(int damage) {
+    public void Damage(int damage)
+    {
+        Debug.Log(health);
         health -= damage;
-        hb.SetHealth(health);
-        if (health <= 0) {
+        
+        if (health <= 0)
+        {
             Die();
         }
+
+        hb.SetHealth(health);
+    }
+
+    public void Heal(int amount)
+    {
+        health += amount;
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+        hb.SetHealth(health);
     }
 
     public void AllowDisembark(int gateNumber)
@@ -58,8 +78,12 @@ public class MechaActions : MonoBehaviour
 
     public void Disembark()
     {
-			if (gateToDisembark == 0) return;
-      gameManager.ChangeView("Gate"+gateToDisembark);
+        if (gateToDisembark == 0)
+        {
+            return;
+        }
+
+        gameManager.ChangeView("Gate" + gateToDisembark);
     }
 
     void Die()
