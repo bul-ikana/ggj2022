@@ -8,6 +8,7 @@ public class MinigameControls : MonoBehaviour
     public float moveSpeed = 5.0f;
     public float jumpForce = 50.0f;
 
+    private Animator animator;
     private Rigidbody2D playerBody;
     private Collider2D playerCollider;
     private float horizontalMovement = 0.0f;
@@ -21,6 +22,7 @@ public class MinigameControls : MonoBehaviour
         // Rigid body and collider from player object
         playerBody = player.GetComponent<Rigidbody2D>();
         playerCollider = player.GetComponent<Collider2D>();
+        animator = player.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -56,5 +58,14 @@ public class MinigameControls : MonoBehaviour
         velocityHandler.x = horizontalMovement * moveSpeed;
         velocityHandler.y = playerBody.velocity.y;
         playerBody.velocity = velocityHandler;
+
+				if (horizontalMovement < 0) player.GetComponent<SpriteRenderer>().flipX = true;
+				else if (horizontalMovement > 0) player.GetComponent<SpriteRenderer>().flipX = false;
+
+				// Animation control
+				if (horizontalMovement != 0f) animator.SetBool("isMoving", true);
+				else animator.SetBool("isMoving", false);
+				if (playerBody.velocity.y != 0f) animator.SetBool("isJumping", true);
+				else animator.SetBool("isJumping", false);
     }
 }
