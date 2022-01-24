@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3171238965136087036}
   - component: {fileID: 3171238965136087031}
   m_Layer: 0
-  m_Name: FloorMoveEnemy
+  m_Name: MoveEnemyFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
