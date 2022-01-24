@@ -6,12 +6,15 @@ public class MechaActions : MonoBehaviour
     public float moveSpeed = 5;
     public bool canDisembark = false;
 
+    HealthBarActions hb;
     Transform shootPoint;
     Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        hb = GameObject.Find("HealthBar").GetComponent<HealthBarActions>();
+        hb.SetMaxHealth(health);
         shootPoint = GameObject.Find("ShootPoint").transform;
     }
 
@@ -32,6 +35,7 @@ public class MechaActions : MonoBehaviour
 
     public void Damage(int damage) {
         health -= damage;
+        hb.SetHealth(health);
         if (health <= 0) {
             Die();
         }

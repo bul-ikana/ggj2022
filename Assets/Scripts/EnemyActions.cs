@@ -24,7 +24,7 @@ public class EnemyActions : MonoBehaviour
         MechaActions mecha = collision.GetComponent<MechaActions>();
 
         if (mecha != null) {
-            mecha.GetComponent<MechaActions>().Damage(300);
+            mecha.Damage(20);
             Die();
         }
     }
