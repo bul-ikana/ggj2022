@@ -6,6 +6,7 @@ public class EnemyActions : MonoBehaviour
 {
     public int speed = 1;
     public int health = 120;
+    public int pelletDrop = 65;
 
     GameObject mecha;
 
@@ -19,13 +20,15 @@ public class EnemyActions : MonoBehaviour
         MoveTowardsMecha();
     }
 
+    // Damage mecha on collision
     void OnTriggerEnter2D(Collider2D collision)
     {
         MechaActions mecha = collision.GetComponent<MechaActions>();
 
-        if (mecha != null) {
+        if (mecha != null)
+        {
             mecha.Damage(40);
-            Die();
+            Destroy(this.gameObject);
         }
     }
 
@@ -43,13 +46,19 @@ public class EnemyActions : MonoBehaviour
     public void Damage(int damage)
     {
         health -= damage;
-        if (health <= 0) {
+        if (health <= 0)
+        {
             Die();
         }
     }
 
     void Die()
     {
+        if (Random.Range(1,100) < pelletDrop)
+        {
+            Instantiate(Resources.Load("PelletPrefab"), transform.position, transform.rotation);
+        }
+
         Destroy(this.gameObject);
     }
 }
