@@ -64,7 +64,7 @@ public class MechaActions : MonoBehaviour
 
     void Die()
     {
+      	gameManager.ChangeView("Gameover");
         Destroy(this.gameObject);
-        Application.LoadLevel(Application.loadedLevel);
     }
 }

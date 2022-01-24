@@ -18,7 +18,7 @@ public class GameManagerScript : MonoBehaviour {
 		if (!existsAlready){
 			DontDestroyOnLoad(gameObject);
 			existsAlready = true;
-		} else DestroyObject(gameObject);
+		} else Destroy(gameObject);
 	}
 
 	public void CloseMenuWindow(){
@@ -42,6 +42,7 @@ public class GameManagerScript : MonoBehaviour {
       case "Gate2": sceneId = 4; break;
       case "Gate3": sceneId = 5; break;
       case "Gate4": sceneId = 6; break;
+      case "Gameover": sceneId = 7; break;
       default: sceneId = 0; break;
     }
 		SceneManager.LoadScene(sceneId, LoadSceneMode.Single);
