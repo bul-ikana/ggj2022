@@ -6,12 +6,14 @@ public class MechaActions : MonoBehaviour
     public float moveSpeed = 5;
     public bool canDisembark = false;
 
+  	private GameManagerScript gameManager;
     HealthBarActions hb;
     Transform shootPoint;
     Rigidbody2D rb;
 
     void Start()
     {
+    		gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         rb = GetComponent<Rigidbody2D>();
         hb = GameObject.Find("HealthBar").GetComponent<HealthBarActions>();
         hb.SetMaxHealth(health);
@@ -53,7 +55,7 @@ public class MechaActions : MonoBehaviour
 
     public void Disembark()
     {
-        Debug.Log("Change Screen");
+      gameManager.ChangeView(3);
     }
 
     void Die()
