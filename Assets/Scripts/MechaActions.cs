@@ -3,45 +3,32 @@ using UnityEngine;
 public class MechaActions : MonoBehaviour
 {
     public int health = 200;
+    public float moveSpeed = 5;
+    public bool canDisembark = false;
 
+		private int gateToDisembark = 0;
+  	private GameManagerScript gameManager;
+    HealthBarActions hb;
     Transform shootPoint;
+    Rigidbody2D rb;
 
     void Start()
     {
+    		gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+        rb = GetComponent<Rigidbody2D>();
+        hb = GameObject.Find("HealthBar").GetComponent<HealthBarActions>();
+        hb.SetMaxHealth(health);
         shootPoint = GameObject.Find("ShootPoint").transform;
     }
 
-    public float moveSpeed = 5;
-
-    public void MoveUp()
+    public void Move(Vector2 direction)
     {
-        transform.position += Vector3.up * moveSpeed * Time.deltaTime;
+        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
     }
 
-    public void MoveDown()
+    public void Rotate(float angle)
     {
-        transform.position += Vector3.up * -moveSpeed * Time.deltaTime;
-    }
-
-    public void MoveLeft()
-    {
-        transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
-    }
-
-    public void MoveRight()
-    {
-        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-    }
-
-    public void RotateToCursor()
-    {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 objectPos = Camera.main.WorldToScreenPoint (transform.position);
-        mousePos.x = mousePos.x - objectPos.x;
-        mousePos.y = mousePos.y - objectPos.y;
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        rb.MoveRotation(angle);
     }
 
     public void Shoot()
@@ -51,9 +38,28 @@ public class MechaActions : MonoBehaviour
 
     public void Damage(int damage) {
         health -= damage;
+        hb.SetHealth(health);
         if (health <= 0) {
             Die();
         }
+    }
+
+    public void AllowDisembark(int gateNumber)
+    {
+      gateToDisembark = gateNumber;
+      canDisembark = true;
+    }
+
+    public void DenyDisembark()
+    {
+        gateToDisembark = 0;
+        canDisembark = false;
+    }
+
+    public void Disembark()
+    {
+			if (gateToDisembark == 0) return;
+      gameManager.ChangeView("Gate"+gateToDisembark);
     }
 
     void Die()
