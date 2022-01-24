@@ -5,6 +5,8 @@ using UnityEngine;
 public class GateActions : MonoBehaviour
 {
     MechaActions mecha;
+
+		public int gateNumber;
     
     void Start()
     {
@@ -16,7 +18,7 @@ public class GateActions : MonoBehaviour
         MechaActions mecha = collision.GetComponent<MechaActions>();
 
         if (mecha != null) {
-            mecha.AllowDisembark();
+            mecha.AllowDisembark(gateNumber);
         }
     }
 

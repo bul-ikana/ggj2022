@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8392468416347860466}
   - component: {fileID: 8392468416347860460}
   - component: {fileID: 8392468416347860463}
+  - component: {fileID: -2734398723620628458}
   m_Layer: 0
   m_Name: GatePrefab
   m_TagString: Untagged
@@ -120,5 +121,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4e2986de85e37547a18e204e19a7336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateNumber: 0
+--- !u!114 &-2734398723620628458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392468416347860467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bacf2ac07ce7db4438108f884029ba8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

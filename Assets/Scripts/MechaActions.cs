@@ -6,12 +6,15 @@ public class MechaActions : MonoBehaviour
     public float moveSpeed = 5;
     public bool canDisembark = false;
 
+		private int gateToDisembark = 0;
+  	private GameManagerScript gameManager;
     HealthBarActions hb;
     Transform shootPoint;
     Rigidbody2D rb;
 
     void Start()
     {
+    		gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         rb = GetComponent<Rigidbody2D>();
         hb = GameObject.Find("HealthBar").GetComponent<HealthBarActions>();
         hb.SetMaxHealth(health);
@@ -41,24 +44,27 @@ public class MechaActions : MonoBehaviour
         }
     }
 
-    public void AllowDisembark()
+    public void AllowDisembark(int gateNumber)
     {
-        canDisembark = true;
+      gateToDisembark = gateNumber;
+      canDisembark = true;
     }
 
     public void DenyDisembark()
     {
+        gateToDisembark = 0;
         canDisembark = false;
     }
 
     public void Disembark()
     {
-        Debug.Log("Change Screen");
+			if (gateToDisembark == 0) return;
+      gameManager.ChangeView("Gate"+gateToDisembark);
     }
 
     void Die()
     {
+      	gameManager.ChangeView("Gameover");
         Destroy(this.gameObject);
-        Application.LoadLevel(Application.loadedLevel);
     }
 }
