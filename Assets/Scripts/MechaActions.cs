@@ -6,6 +6,7 @@ public class MechaActions : MonoBehaviour
     public float moveSpeed = 5;
     public bool canDisembark = false;
 
+		private int gateToDisembark = 0;
   	private GameManagerScript gameManager;
     HealthBarActions hb;
     Transform shootPoint;
@@ -43,19 +44,22 @@ public class MechaActions : MonoBehaviour
         }
     }
 
-    public void AllowDisembark()
+    public void AllowDisembark(int gateNumber)
     {
-        canDisembark = true;
+      gateToDisembark = gateNumber;
+      canDisembark = true;
     }
 
     public void DenyDisembark()
     {
+        gateToDisembark = 0;
         canDisembark = false;
     }
 
     public void Disembark()
     {
-      gameManager.ChangeView(3);
+			if (gateToDisembark == 0) return;
+      gameManager.ChangeView("Gate"+gateToDisembark);
     }
 
     void Die()
