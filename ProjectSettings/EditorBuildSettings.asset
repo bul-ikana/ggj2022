@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gates/Gate4.unity
     guid: 5af2256cfde222e45b74f500a541ea85
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 38fa798c720be824f82882624e836f46
   m_configObjects: {}
