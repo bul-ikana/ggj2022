@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyActions : MonoBehaviour
 {
-    public float speed = 1f;
-    public int health = 120;
-    public int pelletDrop = 65;
+    public int health;
+    public int damage;
+    public float speed;
+    public int pelletDrop;
 
     GameObject mecha;
 
@@ -22,13 +23,13 @@ public class EnemyActions : MonoBehaviour
     }
 
     // Damage mecha on collision
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        MechaActions mecha = collision.GetComponent<MechaActions>();
+        MechaActions mecha = collision.collider.GetComponent<MechaActions>();
 
         if (mecha != null)
         {
-            mecha.Damage(40);
+            mecha.Damage(damage);
             Destroy(this.gameObject);
         }
     }

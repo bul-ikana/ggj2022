@@ -19,10 +19,10 @@ public class BulletActions : MonoBehaviour
         Destroy(this.gameObject, time);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == BULLET_STOP_TAG) {
-            EnemyActions enemy = collision.GetComponent<EnemyActions>();
+        if (collision.collider.tag == BULLET_STOP_TAG) {
+            EnemyActions enemy = collision.collider.GetComponent<EnemyActions>();
 
             if (enemy != null) {
                 enemy.Damage(damage);
