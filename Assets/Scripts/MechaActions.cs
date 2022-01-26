@@ -2,26 +2,26 @@ using UnityEngine;
 
 public class MechaActions : MonoBehaviour
 {
-    public int health = 200;
-    public int maxHealth = 200;
-    public float moveSpeed = 5;
-    public bool canDisembark = false;
+    public int health;
+    public int maxHealth;
+    public float moveSpeed;
 
-    private int gateToDisembark = 0;
-    private GameManagerScript gameManager;
-    HealthBarActions hb;
-    Transform shootPoint;
+    public int maxWeapon;
+    public int currentWeapon;
+
+    MechaUI ui;
     Rigidbody2D rb;
+    Transform shootPoint;
+    GameManagerScript gameManager;
 
     void Start()
     {
+        ui = GetComponent<MechaUI>();
         rb = GetComponent<Rigidbody2D>();
         shootPoint = GameObject.Find("ShootPoint").transform;
-        hb = GameObject.Find("HealthBar").GetComponent<HealthBarActions>();
-    	gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
-        hb.SetMaxHealth(maxHealth);
-        hb.SetHealth(health);
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
 
+        ui.InitializeHealth(health, maxHealth);
     }
 
     public void Move(Vector2 direction)
@@ -36,12 +36,18 @@ public class MechaActions : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(Resources.Load("BulletPrefab"), shootPoint.position, shootPoint.rotation);
+        Instantiate(Resources.Load("Bullet" + (currentWeapon + 1) + "Prefab"), shootPoint.position, shootPoint.rotation);
+    }
+
+    public void ChangeWeapon()
+    {
+        currentWeapon = (currentWeapon + 1) % maxWeapon;
+
+        ui.UpdateWeapon(currentWeapon);
     }
 
     public void Damage(int damage)
     {
-        Debug.Log(health);
         health -= damage;
         
         if (health <= 0)
@@ -49,7 +55,7 @@ public class MechaActions : MonoBehaviour
             Die();
         }
 
-        hb.SetHealth(health);
+        ui.UpdateHealth(health);
     }
 
     public void Heal(int amount)
@@ -61,29 +67,7 @@ public class MechaActions : MonoBehaviour
             health = maxHealth;
         }
 
-        hb.SetHealth(health);
-    }
-
-    public void AllowDisembark(int gateNumber)
-    {
-      gateToDisembark = gateNumber;
-      canDisembark = true;
-    }
-
-    public void DenyDisembark()
-    {
-        gateToDisembark = 0;
-        canDisembark = false;
-    }
-
-    public void Disembark()
-    {
-        if (gateToDisembark == 0)
-        {
-            return;
-        }
-
-        gameManager.ChangeView("Gate" + gateToDisembark);
+        ui.UpdateHealth(health);
     }
 
     void Die()
