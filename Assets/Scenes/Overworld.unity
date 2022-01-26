@@ -237,7 +237,6 @@ MonoBehaviour:
   health: 200
   maxHealth: 200
   moveSpeed: 8
-  canDisembark: 0
 --- !u!212 &346392525
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -422,6 +421,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8392468416347860463, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392468416347860463, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
       propertyPath: gateNumber
       value: 1
       objectReference: {fileID: 0}
@@ -433,7 +436,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8392468416347860460, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
 --- !u!1 &519420028
 GameObject:
@@ -692,6 +696,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c04f463874f279a4198047e75531f741, type: 3}
+--- !u!1 &905156541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8392468416347860467, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
+  m_PrefabInstance: {fileID: 450537786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &905156542
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905156541}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.59
 --- !u!1 &905567732
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +867,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929966385}
   m_CullTransparentMesh: 1
+--- !u!1 &1010605296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8392468416347860467, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
+  m_PrefabInstance: {fileID: 1624829935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1010605297
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010605296}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.59
 --- !u!1001 &1071939738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -892,6 +938,10 @@ PrefabInstance:
     - target: {fileID: 8392468416347860461, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392468416347860463, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
+      propertyPath: active
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8392468416347860463, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
       propertyPath: gateNumber
@@ -1154,6 +1204,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8392468416347860463, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392468416347860463, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
       propertyPath: gateNumber
       value: 3
       objectReference: {fileID: 0}
@@ -1165,7 +1219,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8392468416347860460, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
 --- !u!1001 &1687390246
 PrefabInstance:
@@ -1479,6 +1534,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8392468416347860463, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
+      propertyPath: active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392468416347860463, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
       propertyPath: gateNumber
       value: 2
       objectReference: {fileID: 0}
@@ -1490,7 +1549,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8392468416347860460, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
 --- !u!4 &2017923539 stripped
 Transform:
@@ -1649,6 +1709,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c04f463874f279a4198047e75531f741, type: 3}
+--- !u!1 &2120716131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8392468416347860467, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
+  m_PrefabInstance: {fileID: 1998889407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &2120716134
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120716131}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.59
 --- !u!1 &2121451575
 GameObject:
   m_ObjectHideFlags: 0

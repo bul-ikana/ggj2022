@@ -14,10 +14,11 @@ public class MechaControls : MonoBehaviour
 
     void LateUpdate()
     {
-        RotateMechaToCursor();
-        ListenForMechaShoots();
-        ListenForGates();
         MoveMecha();
+        RotateMechaToCursor();
+
+        ListenForShoots();
+        ListenForWeaponChanges();
     }
 
     void MoveMecha()
@@ -62,7 +63,7 @@ public class MechaControls : MonoBehaviour
         mecha.Rotate(angle);
     }
 
-    void ListenForMechaShoots()
+    void ListenForShoots()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -70,11 +71,11 @@ public class MechaControls : MonoBehaviour
         }
     }
 
-    void ListenForGates()
+    void ListenForWeaponChanges()
     {
-        if (Input.GetMouseButtonDown(1) && mecha.canDisembark)
+        if (Input.GetMouseButtonDown(1))
         {
-            mecha.Disembark();
+            // mecha.Disembark();
         }
     }
 }

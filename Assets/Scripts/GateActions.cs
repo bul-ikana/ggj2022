@@ -4,30 +4,25 @@ using UnityEngine;
 
 public class GateActions : MonoBehaviour
 {
-    MechaActions mecha;
+    public int gateNumber;
+    public bool active = true;
+    GameManagerScript gameManager;
 
-		public int gateNumber;
-    
     void Start()
     {
-        mecha = GameObject.Find("Mecha").GetComponent<MechaActions>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
     }
-
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
-        MechaActions mecha = collision.GetComponent<MechaActions>();
+        if (active)
+        {
+            MechaActions mecha = collision.GetComponent<MechaActions>();
 
-        if (mecha != null) {
-            mecha.AllowDisembark(gateNumber);
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        MechaActions mecha = collision.GetComponent<MechaActions>();
-
-        if (mecha != null) {
-            mecha.DenyDisembark();
+            if (mecha != null) 
+            {
+                gameManager.ChangeView("Gate" + gateNumber);
+            }
         }
     }
 }

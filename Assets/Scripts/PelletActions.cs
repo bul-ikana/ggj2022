@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PelletActions : MonoBehaviour
 {
+    void Start()
+    {
+        Destroy(this.gameObject, 5f);
+    }
+
     // Heal mecha on collision
     void OnTriggerEnter2D(Collider2D collision)
     {
