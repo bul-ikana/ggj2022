@@ -9,7 +9,7 @@ public class EnemyActions : MonoBehaviour
     public float speed;
     public int pelletDrop;
 
-    GameObject mecha;
+    protected GameObject mecha;
 
     protected virtual void Start()
     {

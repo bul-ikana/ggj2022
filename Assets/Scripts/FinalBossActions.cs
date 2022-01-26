@@ -48,13 +48,20 @@ public class FinalBossActions : EnemyActions
         switch(pattern)
         {
             case 1:
-            break;
+                break;
             case 2:
-            break;
+                CreateRockBarrier();
+                break;
             case 3:
-            break;
+                break;
             case 4:
-            break;
+                break;
         }
+    }
+
+    void CreateRockBarrier()
+    {
+        Vector3 spawnPosition = GameObject.Find("BackSpawnPoint").transform.position;
+        Instantiate(Resources.Load("StoneWallPrefab"), spawnPosition, mecha.transform.rotation);
     }
 }
