@@ -9,18 +9,22 @@ public class MechaActions : MonoBehaviour
     public int maxWeapon;
     public int currentWeapon;
 
-    MechaUI ui;
-    Rigidbody2D rb;
-    Transform shootPoint;
-    GameManagerScript gameManager;
-
+    private MechaUI ui;
+    private Rigidbody2D rb;
+    private Transform shootPoint;
+    private GameManagerScript gameManager;
+		private Upgrades upgrades;
+		
+		/*
+		Use ej: upgrades.hasBombs to check if the player has adquired certain upgrade
+		*/
     void Start()
     {
         ui = GetComponent<MechaUI>();
         rb = GetComponent<Rigidbody2D>();
         shootPoint = GameObject.Find("ShootPoint").transform;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
-
+				upgrades = gameManager.getPlayerUpgrades();
         ui.InitializeHealth(health, maxHealth);
     }
 

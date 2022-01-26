@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+public class Upgrades {
+	public bool hasBombs = false;
+	public bool hasLaser = false;
+	public bool hasVision = false;
+	public bool hasEnergy = false;
+}
+
 public class GameManagerScript : MonoBehaviour {
 	public GameObject MenuObject;
 	public GameObject ScreenTransition;
 
 	private static bool existsAlready = false;
 	private GameObject MenuWindow;
+	private Upgrades upgrades;
 	//private int currentView = Constants.ROBOT_VIEW;
 
 	void Start() {
+		upgrades = new Upgrades();
 		// Limit application to 60 FPS
 		Application.targetFrameRate = 60;
 		// Keep global object between scenes
@@ -19,6 +28,20 @@ public class GameManagerScript : MonoBehaviour {
 			DontDestroyOnLoad(gameObject);
 			existsAlready = true;
 		} else Destroy(gameObject);
+	}
+
+	// Upgrade functions
+	public Upgrades getPlayerUpgrades() {
+		return upgrades;
+	}
+
+	public void addUpgrade(string upgradeName) {
+    switch (upgradeName) {
+      case "Bombs": upgrades.hasBombs = true; break;
+      case "Laser": upgrades.hasLaser = true; break;
+      case "Vision": upgrades.hasVision = true; break;
+      case "Energy": upgrades.hasEnergy = true; break;
+    }
 	}
 
 	public void CloseMenuWindow(){
@@ -50,10 +73,16 @@ public class GameManagerScript : MonoBehaviour {
 
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			if (MenuWindow == null)
+			if (MenuWindow == null) {
 				MenuWindow = Instantiate(MenuObject, transform.position, transform.rotation);
-			else
-				CloseMenuWindow();
+				// Show active upgrades in the ui
+				Transform UIUpgrades = MenuWindow.transform.Find("Canvas/Upgrades").transform;
+				if (upgrades.hasBombs) UIUpgrades.Find("Upgrade1").gameObject.SetActive(true);
+				if (upgrades.hasLaser) UIUpgrades.Find("Upgrade2").gameObject.SetActive(true);
+				if (upgrades.hasVision) UIUpgrades.Find("Upgrade3").gameObject.SetActive(true);
+				if (upgrades.hasEnergy) UIUpgrades.Find("Upgrade4").gameObject.SetActive(true);
+			}
+			else CloseMenuWindow();
 			
 			/* Create a transition, who will call setView at an animation event
 			GameObject transition = Instantiate(ScreenTransition, currentCamera.transform.position, currentCamera.transform.rotation);

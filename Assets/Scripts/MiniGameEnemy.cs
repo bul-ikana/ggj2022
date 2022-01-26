@@ -24,10 +24,12 @@ public class MiniGameEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player") {
+        /* Only for debugging
+				if (collision.tag == "Player") {
             Application.LoadLevel(Application.loadedLevel);
         }
-        else if(collision.tag == "MinigameEnemyReverser"){
+        else */
+				if(collision.tag == "MinigameEnemyReverser"){
             direction = -direction;
             rb.AddForce(new Vector2(2*direction*impulseForce,0.0f),ForceMode2D.Impulse);
         }
