@@ -9,7 +9,7 @@ public class MechaControls : MonoBehaviour
     
     void Start()
     {
-        mecha = GameObject.Find("Mecha").GetComponent<MechaActions>();
+        mecha = GetComponent<MechaActions>();
     }
 
     void LateUpdate()
@@ -75,7 +75,7 @@ public class MechaControls : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            // mecha.Disembark();
+            mecha.ChangeWeapon();
         }
     }
 }
