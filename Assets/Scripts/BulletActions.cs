@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BulletActions : MonoBehaviour
 {
-    const string BULLET_STOP_TAG = "BulletStop";
+    protected const string BULLET_STOP_TAG = "BulletStop";
 
     public int damage = 24;
     public float speed = 20f;
+    public float time = 1f;
 
     Rigidbody2D rb;
 
@@ -15,7 +16,7 @@ public class BulletActions : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
-        Destroy(this.gameObject, 1f);
+        Destroy(this.gameObject, time);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

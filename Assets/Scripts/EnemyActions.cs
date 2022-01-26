@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyActions : MonoBehaviour
 {
-    public int speed = 1;
+    public float speed = 1f;
     public int health = 120;
     public int pelletDrop = 65;
 
     GameObject mecha;
 
-    void Start()
+    protected virtual void Start()
     {
          mecha = GameObject.Find("Mecha");
     }
@@ -18,6 +18,7 @@ public class EnemyActions : MonoBehaviour
     void Update()
     {
         MoveTowardsMecha();
+        RotateTowardsMecha();
     }
 
     // Damage mecha on collision
@@ -32,12 +33,13 @@ public class EnemyActions : MonoBehaviour
         }
     }
 
-    void MoveTowardsMecha()
+   protected void MoveTowardsMecha()
     {
-        // Move
         transform.position = Vector3.MoveTowards(transform.position, mecha.transform.position, speed * Time.deltaTime);
-
-        // Rotate
+    }
+    
+    void RotateTowardsMecha()
+    {
         Vector3 direction = mecha.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);

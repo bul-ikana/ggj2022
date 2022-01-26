@@ -41,7 +41,6 @@ public class MechaActions : MonoBehaviour
 
     public void Damage(int damage)
     {
-        Debug.Log(health);
         health -= damage;
         
         if (health <= 0)
