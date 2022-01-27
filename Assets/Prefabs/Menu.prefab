@@ -648,6 +648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf2ac07ce7db4438108f884029ba8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreenTransition: {fileID: 1620883222575634707, guid: 07e83a9a92e1e1147bd050a889782c7f, type: 3}
+  screenToChange: 
 --- !u!1 &4479683039119781916
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,6 +902,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf2ac07ce7db4438108f884029ba8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreenTransition: {fileID: 1620883222575634707, guid: 07e83a9a92e1e1147bd050a889782c7f, type: 3}
+  screenToChange: 
 --- !u!1 &8062959402414383622
 GameObject:
   m_ObjectHideFlags: 0

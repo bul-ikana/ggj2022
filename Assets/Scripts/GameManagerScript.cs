@@ -12,7 +12,6 @@ public class Upgrades {
 
 public class GameManagerScript : MonoBehaviour {
 	public GameObject MenuObject;
-	public GameObject ScreenTransition;
 
 	private static bool existsAlready = false;
 	private GameObject MenuWindow;
@@ -83,11 +82,6 @@ public class GameManagerScript : MonoBehaviour {
 				if (upgrades.hasEnergy) UIUpgrades.Find("Upgrade4").gameObject.SetActive(true);
 			}
 			else CloseMenuWindow();
-			
-			/* Create a transition, who will call setView at an animation event
-			GameObject transition = Instantiate(ScreenTransition, currentCamera.transform.position, currentCamera.transform.rotation);
-			transition.GetComponentInChildren<ScreenChangeScript>().calledBy = this;
-			transition.GetComponentInChildren<ScreenChangeScript>().screenToChange = currentView;*/
 		}
 	}
 }

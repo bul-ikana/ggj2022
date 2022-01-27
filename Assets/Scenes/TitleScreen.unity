@@ -348,6 +348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf2ac07ce7db4438108f884029ba8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreenTransition: {fileID: 1620883222575634707, guid: 07e83a9a92e1e1147bd050a889782c7f, type: 3}
+  screenToChange: 
 --- !u!1 &230872921
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +646,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuObject: {fileID: 4479683039119781916, guid: 0fa83b26cd0068c48838b19cc8478646, type: 3}
-  ScreenTransition: {fileID: 1620883222575634707, guid: 07e83a9a92e1e1147bd050a889782c7f, type: 3}
 --- !u!4 &434815679
 Transform:
   m_ObjectHideFlags: 0
@@ -711,6 +712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf2ac07ce7db4438108f884029ba8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreenTransition: {fileID: 0}
+  screenToChange: 
 --- !u!114 &961863498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,6 +939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacf2ac07ce7db4438108f884029ba8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreenTransition: {fileID: 1620883222575634707, guid: 07e83a9a92e1e1147bd050a889782c7f, type: 3}
+  screenToChange: 
 --- !u!114 &1377388153
 MonoBehaviour:
   m_ObjectHideFlags: 0
