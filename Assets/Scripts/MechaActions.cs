@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MechaActions : MonoBehaviour
 {
-    public int health;
-    public int maxHealth;
+    int health;
+    int maxHealth;
     public float moveSpeed;
 
     public int maxWeapon;
@@ -13,12 +13,6 @@ public class MechaActions : MonoBehaviour
     private Rigidbody2D rb;
     private Transform shootPoint;
     private SoundManager audio;
-    private GameManagerScript gameManager;
-    private Upgrades upgrades;
-        
-        /*
-        Use ej: upgrades.hasBombs to check if the player has adquired certain upgrade
-        */
 
     void Start()
     {
@@ -26,9 +20,14 @@ public class MechaActions : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         audio = GetComponent<SoundManager>();
         shootPoint = GameObject.Find("ShootPoint").transform;
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
-        upgrades = gameManager.getPlayerUpgrades();
-        ui.InitializeHealth(health, maxHealth);
+
+        ui.InitializeHealth();
+    }
+
+    public void SetHealth(int setHealth, int setMaxHealth)
+    {
+        health = setHealth;
+        maxHealth = setMaxHealth;
     }
 
     public void Move(Vector2 direction)
@@ -82,7 +81,7 @@ public class MechaActions : MonoBehaviour
 
     void Die()
     {
-        gameManager.ChangeView("Gameover");
+        ui.GameOver();
         Destroy(this.gameObject);
     }
 }

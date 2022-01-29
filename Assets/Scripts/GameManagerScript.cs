@@ -11,8 +11,10 @@ public class Upgrades {
 }
 
 public class GameManagerScript : MonoBehaviour {
-	public GameObject MenuObject;
+    public int mechaHealth;
+    public int mechaMaxHealth;
 
+	public GameObject MenuObject;
 	private static bool existsAlready = false;
 	private GameObject MenuWindow;
 	private Upgrades upgrades;
@@ -45,12 +47,14 @@ public class GameManagerScript : MonoBehaviour {
 
 	public void CloseMenuWindow(){
 		Destroy(MenuWindow);
+		Time.timeScale = 1;
 		MenuWindow = null;
 	}
 
 	public void QuitGame(){
 		Destroy(MenuWindow);
 		MenuWindow = null;
+		Time.timeScale = 1;
 	}
 
 	public void ChangeView(string sceneToLoad) {
@@ -75,6 +79,7 @@ public class GameManagerScript : MonoBehaviour {
 			if (MenuWindow == null) {
 				MenuWindow = Instantiate(MenuObject, transform.position, transform.rotation);
 				// Show active upgrades in the ui
+				Time.timeScale = 0;
 				Transform UIUpgrades = MenuWindow.transform.Find("Canvas/Upgrades").transform;
 				if (upgrades.hasBombs) UIUpgrades.Find("Upgrade1").gameObject.SetActive(true);
 				if (upgrades.hasLaser) UIUpgrades.Find("Upgrade2").gameObject.SetActive(true);
