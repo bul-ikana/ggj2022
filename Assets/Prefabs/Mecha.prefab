@@ -978,8 +978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bdff82563ab82a458fd76be4e6ba5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
-  maxHealth: 200
+  health: 300
+  maxHealth: 300
   moveSpeed: 8
   maxWeapon: 1
   currentWeapon: 0

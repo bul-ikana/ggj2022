@@ -645,6 +645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e816744eb532e499c09f42836e1397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mechaHealth: 300
+  mechaMaxHealth: 300
   MenuObject: {fileID: 4479683039119781916, guid: 0fa83b26cd0068c48838b19cc8478646, type: 3}
 --- !u!4 &434815679
 Transform:
