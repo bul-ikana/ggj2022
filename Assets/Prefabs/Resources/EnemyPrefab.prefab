@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2812070226837389343}
   - component: {fileID: 2812070226837389338}
   - component: {fileID: 2812070226837389339}
+  - component: {fileID: 4206590865809761219}
   m_Layer: 0
   m_Name: EnemyPrefab
   m_TagString: BulletStop
@@ -138,3 +139,18 @@ MonoBehaviour:
   damage: 40
   speed: 2
   pelletDrop: 65
+--- !u!114 &4206590865809761219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812070226837389336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e95200e23ebc9b4ab1987dce0e16b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: damage
+    clip: {fileID: 8300000, guid: 275e1ee0258ef034aabf559ae8c06556, type: 3}

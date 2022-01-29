@@ -81,4 +81,11 @@ public class FinalBossActions : EnemyActions
         Vector3 spawnPosition = GameObject.Find("BackSpawnPoint").transform.position;
         Instantiate(Resources.Load("StoneWallPrefab"), spawnPosition, mecha.transform.rotation);
     }
+
+    protected override void Die()
+    {
+        Instantiate(Resources.Load("DestroyedBoss"), transform.position, transform.rotation);
+
+        Destroy(gameObject);
+    }
 }

@@ -12,12 +12,14 @@ public class MechaActions : MonoBehaviour
     MechaUI ui;
     Rigidbody2D rb;
     Transform shootPoint;
+    SoundManager audio;
     GameManagerScript gameManager;
 
     void Start()
     {
         ui = GetComponent<MechaUI>();
         rb = GetComponent<Rigidbody2D>();
+        audio = GetComponent<SoundManager>();
         shootPoint = GameObject.Find("ShootPoint").transform;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
 
@@ -55,6 +57,7 @@ public class MechaActions : MonoBehaviour
             Die();
         }
 
+        audio.Play("damage");
         ui.UpdateHealth(health);
     }
 
@@ -67,6 +70,7 @@ public class MechaActions : MonoBehaviour
             health = maxHealth;
         }
 
+        audio.Play("heal");
         ui.UpdateHealth(health);
     }
 

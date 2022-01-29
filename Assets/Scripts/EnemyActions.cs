@@ -10,10 +10,12 @@ public class EnemyActions : MonoBehaviour
     public int pelletDrop;
 
     protected GameObject mecha;
+    protected SoundManager audio;
 
     protected virtual void Start()
     {
-         mecha = GameObject.Find("Mecha");
+        audio = GetComponent<SoundManager>();
+        mecha = GameObject.Find("Mecha");
     }
 
     void Update()
@@ -52,16 +54,20 @@ public class EnemyActions : MonoBehaviour
         if (health <= 0)
         {
             Die();
+        } else {
+            audio.Play("damage");
         }
     }
 
-    void Die()
+    protected virtual void Die()
     {
         if (Random.Range(1,100) < pelletDrop)
         {
             Instantiate(Resources.Load("PelletPrefab"), transform.position, transform.rotation);
         }
+        
+        Instantiate(Resources.Load("DestroyedEnemy"), transform.position, transform.rotation);
 
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
