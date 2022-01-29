@@ -12,19 +12,22 @@ public class MechaActions : MonoBehaviour
     private MechaUI ui;
     private Rigidbody2D rb;
     private Transform shootPoint;
+    private SoundManager audio;
     private GameManagerScript gameManager;
-		private Upgrades upgrades;
-		
-		/*
-		Use ej: upgrades.hasBombs to check if the player has adquired certain upgrade
-		*/
+    private Upgrades upgrades;
+        
+        /*
+        Use ej: upgrades.hasBombs to check if the player has adquired certain upgrade
+        */
+
     void Start()
     {
         ui = GetComponent<MechaUI>();
         rb = GetComponent<Rigidbody2D>();
+        audio = GetComponent<SoundManager>();
         shootPoint = GameObject.Find("ShootPoint").transform;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
-				upgrades = gameManager.getPlayerUpgrades();
+        upgrades = gameManager.getPlayerUpgrades();
         ui.InitializeHealth(health, maxHealth);
     }
 
@@ -59,6 +62,8 @@ public class MechaActions : MonoBehaviour
             Die();
         }
 
+        ui.ShakeCamera(damage * 0.1f, 0.2f);
+        audio.Play("damage");
         ui.UpdateHealth(health);
     }
 
@@ -71,12 +76,13 @@ public class MechaActions : MonoBehaviour
             health = maxHealth;
         }
 
+        audio.Play("heal");
         ui.UpdateHealth(health);
     }
 
     void Die()
     {
-      	gameManager.ChangeView("Gameover");
+        gameManager.ChangeView("Gameover");
         Destroy(this.gameObject);
     }
 }

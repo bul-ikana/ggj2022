@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class EnemyActions : MonoBehaviour
 {
-    public float speed = 1f;
-    public int health = 120;
-    public int pelletDrop = 65;
+    public int health;
+    public int damage;
+    public float speed;
+    public int pelletDrop;
 
-    GameObject mecha;
+    protected GameObject mecha;
+    protected SoundManager audio;
 
     protected virtual void Start()
     {
-         mecha = GameObject.Find("Mecha");
+        audio = GetComponent<SoundManager>();
+        mecha = GameObject.Find("Mecha");
     }
 
     void Update()
@@ -22,13 +25,13 @@ public class EnemyActions : MonoBehaviour
     }
 
     // Damage mecha on collision
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        MechaActions mecha = collision.GetComponent<MechaActions>();
+        MechaActions mecha = collision.collider.GetComponent<MechaActions>();
 
         if (mecha != null)
         {
-            mecha.Damage(40);
+            mecha.Damage(damage);
             Destroy(this.gameObject);
         }
     }
@@ -51,16 +54,20 @@ public class EnemyActions : MonoBehaviour
         if (health <= 0)
         {
             Die();
+        } else {
+            audio.Play("damage");
         }
     }
 
-    void Die()
+    protected virtual void Die()
     {
         if (Random.Range(1,100) < pelletDrop)
         {
             Instantiate(Resources.Load("PelletPrefab"), transform.position, transform.rotation);
         }
+        
+        Instantiate(Resources.Load("DestroyedEnemy"), transform.position, transform.rotation);
 
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
