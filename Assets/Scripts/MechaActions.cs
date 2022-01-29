@@ -57,6 +57,7 @@ public class MechaActions : MonoBehaviour
             Die();
         }
 
+        ui.ShakeCamera(damage * 0.1f, 0.2f);
         audio.Play("damage");
         ui.UpdateHealth(health);
     }
