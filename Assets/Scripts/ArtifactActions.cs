@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PelletActions : MonoBehaviour
+public class ArtifactActions : MonoBehaviour
 {
-    void Start()
+    GameManagerScript gameManager;
+
+    void Awake()
     {
-        Destroy(this.gameObject, 6f);
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
     }
 
-    // Heal mecha on collision
     void OnTriggerEnter2D(Collider2D collision)
     {
         MechaActions mecha = collision.GetComponent<MechaActions>();
 
         if (mecha != null)
         {
-            mecha.Heal(10);
-            Destroy(this.gameObject);
+            gameManager.ChangeView("Credits");
         }
     }
 }

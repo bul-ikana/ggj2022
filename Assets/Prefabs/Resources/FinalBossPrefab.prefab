@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6817203482250815199}
   m_LocalRotation: {x: -0, y: -0, z: -0.64278764, w: 0.7660444}
-  m_LocalPosition: {x: 0, y: -1.4142132, z: 376.12683}
+  m_LocalPosition: {x: 0, y: -1.4142132, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6817203483131287764}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6817203482841881545}
   m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071069}
-  m_LocalPosition: {x: 0, y: 1.4142132, z: 376.12683}
+  m_LocalPosition: {x: 0, y: 1.4142132, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6817203483131287764}
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 2000
-  damage: 1000
+  damage: 100
   speed: 0.7
   pelletDrop: 0
 --- !u!58 &6817203483131287766
@@ -336,7 +336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6817203483159172050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4142137, y: 0, z: 376.12683}
+  m_LocalPosition: {x: 1.4142137, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6817203483131287764}
@@ -396,7 +396,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6817203483291747359}
   m_LocalRotation: {x: -0, y: -0, z: 0.9961947, w: 0.08715576}
-  m_LocalPosition: {x: -1.4142139, y: 0, z: 376.12683}
+  m_LocalPosition: {x: -1.4142139, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6817203483131287764}

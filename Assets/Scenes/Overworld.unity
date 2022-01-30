@@ -776,53 +776,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8392468416347860461, guid: 25e9f449d59bd9842a8e03f8b195f5b8, type: 3}
   m_PrefabInstance: {fileID: 450537786}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &954088726
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 954088728}
-  - component: {fileID: 954088727}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &954088727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954088726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0e816744eb532e499c09f42836e1397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mechaHealth: 300
-  mechaMaxHealth: 300
-  mechaAtGate: 0
-  MenuObject: {fileID: 4479683039119781916, guid: 0fa83b26cd0068c48838b19cc8478646, type: 3}
---- !u!4 &954088728
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954088726}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9956515, y: 4.325795, z: 88.84589}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1261819809
 GameObject:
   m_ObjectHideFlags: 0
@@ -10442,6 +10395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0596b86cc835b0438ea80907267beb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 8300000, guid: e7dc83a30950dd245bbcfa8b53126e1b, type: 3}
 --- !u!58 &1924361378
 CircleCollider2D:
   m_ObjectHideFlags: 0

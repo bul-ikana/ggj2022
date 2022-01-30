@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Upgrades {
-  public bool hasBombs = true;
-  public bool hasLaser = true;
-  public bool hasVision = true;
+  public bool hasBombs = false;
+  public bool hasLaser = false;
+  public bool hasVision = false;
   public bool hasEnergy = false;
 
   public bool mgHasBombs = false;
@@ -92,6 +92,7 @@ public class GameManagerScript : MonoBehaviour {
       case "Gate3": sceneId = 5; break;
       case "Gate4": sceneId = 6; break;
       case "Gameover": sceneId = 7; break;
+      case "Credits": sceneId = 8; break;
       default: sceneId = 0; break;
     }
     currentSceneName = sceneToLoad;

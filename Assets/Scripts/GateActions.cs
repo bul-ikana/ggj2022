@@ -26,7 +26,7 @@ public class GateActions : MonoBehaviour
         if (mecha != null) {
             gameManager.mechaAtGate = true;
             gameManager.SetMechaPosition(mecha.transform.position);
-            gameManager.ChangeView("Gate" + gateNumber);
+            gameManager.GetComponent<ChangeSceneScript>().changeScene("Gate" + gateNumber);
         }
     }
 

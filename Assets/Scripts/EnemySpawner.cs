@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         mecha = GameObject.Find("Mecha");
-        InvokeRepeating("SpawnEnemy", 0, 3f);
+        InvokeRepeating("SpawnEnemy", 0, 2.5f);
     }
 
     void SpawnEnemy()

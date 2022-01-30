@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 120
-  damage: 80
-  speed: 2
+  damage: 50
+  speed: 2.5
   pelletDrop: 65
 --- !u!114 &4206590865809761219
 MonoBehaviour:
