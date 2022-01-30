@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229f2cabe7791c146af1f472fd34d08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 5
+  spawnInterval: 3
 --- !u!212 &9197388774643398348
 SpriteRenderer:
   m_ObjectHideFlags: 0
