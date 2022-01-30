@@ -12,6 +12,8 @@ public class FinalGateActions : MonoBehaviour
 
     bool active = false;
 
+    public AudioClip audio;
+
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
@@ -80,6 +82,10 @@ public class FinalGateActions : MonoBehaviour
     void TriggerFinalBoss()
     {
         Instantiate(Resources.Load("FinalBossPrefab"), transform.position, transform.rotation);
+
+
+        GameObject.Find("Mecha").GetComponent<AudioSource>().clip = audio;
+        GameObject.Find("Mecha").GetComponent<AudioSource>().Play();
 
         Destroy(this.gameObject);
     }

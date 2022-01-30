@@ -26,8 +26,8 @@ public class FinalBossActions : EnemyActions
         shootPoint7 = GameObject.Find("ShootPoint7").transform;
         shootPoint8 = GameObject.Find("ShootPoint8").transform;
 
-        InvokeRepeating("ShootDiagonal", 1f, 2f);
-        InvokeRepeating("ShootStraight", 0f, 2f);
+        InvokeRepeating("ShootDiagonal", 2f, 2f);
+        InvokeRepeating("ShootStraight", 1f, 2f);
         InvokeRepeating("Attack", 5f, 5f);
     }
        
@@ -87,5 +87,15 @@ public class FinalBossActions : EnemyActions
         Instantiate(Resources.Load("DestroyedBoss"), transform.position, transform.rotation);
 
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        MechaActions mecha = collision.collider.GetComponent<MechaActions>();
+
+        if (mecha != null)
+        {
+            mecha.Damage(damage);
+        }
     }
 }
