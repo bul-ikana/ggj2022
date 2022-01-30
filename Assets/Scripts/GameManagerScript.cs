@@ -14,7 +14,8 @@ public class GameManagerScript : MonoBehaviour {
 	public GameObject MenuObject;
 
 	private static bool existsAlready = false;
-	private GameObject MenuWindow;
+	private Vector3 mechaPosition = new Vector3(0,0,0);
+	private GameObject menuWindow;
 	private Upgrades upgrades;
 	//private int currentView = Constants.ROBOT_VIEW;
 
@@ -44,13 +45,13 @@ public class GameManagerScript : MonoBehaviour {
 	}
 
 	public void CloseMenuWindow(){
-		Destroy(MenuWindow);
-		MenuWindow = null;
+		Destroy(menuWindow);
+		menuWindow = null;
 	}
 
 	public void QuitGame(){
-		Destroy(MenuWindow);
-		MenuWindow = null;
+		Destroy(menuWindow);
+		menuWindow = null;
 	}
 
 	public void ChangeView(string sceneToLoad) {
@@ -70,12 +71,20 @@ public class GameManagerScript : MonoBehaviour {
 		SceneManager.LoadScene(sceneId, LoadSceneMode.Single);
 	}
 
+	public void SaveMechaPosition(Transform mecha) {
+		mechaPosition = mecha.position;
+	}
+
+	public Vector3 GetMechaSavedPosition() {
+		return mechaPosition;
+	}
+
 	void Update() {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			if (MenuWindow == null) {
-				MenuWindow = Instantiate(MenuObject, transform.position, transform.rotation);
+			if (menuWindow == null) {
+				menuWindow = Instantiate(MenuObject, transform.position, transform.rotation);
 				// Show active upgrades in the ui
-				Transform UIUpgrades = MenuWindow.transform.Find("Canvas/Upgrades").transform;
+				Transform UIUpgrades = menuWindow.transform.Find("Canvas/Upgrades").transform;
 				if (upgrades.hasBombs) UIUpgrades.Find("Upgrade1").gameObject.SetActive(true);
 				if (upgrades.hasLaser) UIUpgrades.Find("Upgrade2").gameObject.SetActive(true);
 				if (upgrades.hasVision) UIUpgrades.Find("Upgrade3").gameObject.SetActive(true);

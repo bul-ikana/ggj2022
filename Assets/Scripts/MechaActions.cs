@@ -9,6 +9,8 @@ public class MechaActions : MonoBehaviour
     public int maxWeapon;
     public int currentWeapon;
 
+    public string gateToEnter;
+
     private MechaUI ui;
     private Rigidbody2D rb;
     private Transform shootPoint;
@@ -26,6 +28,9 @@ public class MechaActions : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
 				upgrades = gameManager.getPlayerUpgrades();
         ui.InitializeHealth(health, maxHealth);
+
+				// If there is a mecha position saved, move the mecha to that position
+				transform.position = gameManager.GetMechaSavedPosition();
     }
 
     public void Move(Vector2 direction)
@@ -72,6 +77,12 @@ public class MechaActions : MonoBehaviour
         }
 
         ui.UpdateHealth(health);
+    }
+
+    public void Disembark()
+    {
+				gameManager.SaveMechaPosition(transform);
+				gameManager.ChangeView(gateToEnter);
     }
 
     void Die()
