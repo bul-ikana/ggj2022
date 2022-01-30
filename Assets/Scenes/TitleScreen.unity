@@ -626,6 +626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 434815679}
   - component: {fileID: 434815678}
+  - component: {fileID: 434815680}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -647,6 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mechaHealth: 300
   mechaMaxHealth: 300
+  mechaAtGate: 0
   MenuObject: {fileID: 4479683039119781916, guid: 0fa83b26cd0068c48838b19cc8478646, type: 3}
 --- !u!4 &434815679
 Transform:
@@ -662,6 +664,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434815680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434815677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bacf2ac07ce7db4438108f884029ba8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScreenTransition: {fileID: 1620883222575634707, guid: 07e83a9a92e1e1147bd050a889782c7f, type: 3}
+  screenToChange: 
 --- !u!1 &961863495
 GameObject:
   m_ObjectHideFlags: 0
