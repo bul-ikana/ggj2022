@@ -37,6 +37,9 @@ public class MiniGameEnemy : MonoBehaviour
             direction = -direction;
             rb.AddForce(new Vector2(2*direction*speedForce,0.0f),ForceMode2D.Impulse);
         }
+        else if(collision.tag == "MinigameEnemyDestroyer"){
+            Destroy(gameObject);
+        }
         else if(Mathf.Abs(rb.velocity.x) < Mathf.Abs(speedForce) && !moveInit){
             moveInit = true;
             rb.AddForce(new Vector2(direction*speedForce,0.0f),ForceMode2D.Impulse);
