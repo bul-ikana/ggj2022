@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 5f397a06ea07a084a94846028d693729, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &8305997028161216894
 BoxCollider2D:
@@ -165,9 +165,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2128bbac93cda7e4e9ff9befd93ff2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8305997028161216884}
   moveSpeed: 10
   jumpForce: 80
+  powerObtained: 
+  sceneBounds:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
 --- !u!1001 &8305997027291851620
 PrefabInstance:
   m_ObjectHideFlags: 0

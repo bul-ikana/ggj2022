@@ -8,6 +8,8 @@ public class MinigameControls : MonoBehaviour
     public float jumpForce = 80.0f;
     public string powerObtained = "";
 
+    public Rect sceneBounds;
+
     private Animator animator;
     private GameObject mainCamera;
     private Rigidbody2D playerBody;
@@ -48,14 +50,12 @@ public class MinigameControls : MonoBehaviour
 
     void LateUpdate()
     {
-        newCameraPosition.x = Mathf.Max(0.0f,gameObject.transform.position.x);
-        newCameraPosition.y = gameObject.transform.position.y;//Mathf.Max(0.0f,gameObject.transform.position.y);
+        newCameraPosition.x = Mathf.Max(sceneBounds.xMin,Mathf.Min(sceneBounds.xMax,gameObject.transform.position.x));
+        // newCameraPosition.y = gameObject.transform.position.y;
+        newCameraPosition.y = Mathf.Max(sceneBounds.yMax,Mathf.Min(sceneBounds.yMin,gameObject.transform.position.y));
         newCameraPosition.z = mainCamera.transform.position.z;
         mainCamera.transform.position = newCameraPosition;
-    }
 
-    void FixedUpdate()
-    {
         // Move Horizontal
         velocityHandler.x = horizontalMovement * moveSpeed;
         velocityHandler.y = playerBody.velocity.y;
@@ -69,5 +69,10 @@ public class MinigameControls : MonoBehaviour
 				else animator.SetBool("isMoving", false);
 				if (playerBody.velocity.y != 0f) animator.SetBool("isJumping", true);
 				else animator.SetBool("isJumping", false);
+    }
+
+    void FixedUpdate()
+    {
+        
     }
 }

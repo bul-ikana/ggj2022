@@ -256,6 +256,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7099047870829151964, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
+      propertyPath: sceneBounds.y
+      value: -3.735
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099047870829151964, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
+      propertyPath: sceneBounds.width
+      value: 14.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099047870829151964, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
+      propertyPath: sceneBounds.height
+      value: -19.735
+      objectReference: {fileID: 0}
     - target: {fileID: 8305997028161216884, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
       propertyPath: m_Name
       value: MinigamePlayer
@@ -302,6 +314,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8305997028161216888, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811153779310515235, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811153779310515235, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
