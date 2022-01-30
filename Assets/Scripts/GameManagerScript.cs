@@ -25,7 +25,6 @@ public class GameManagerScript : MonoBehaviour {
   private Vector3 mechaPosition = new Vector3(0,0,0);
   private GameObject menuWindow;
   private Upgrades upgrades;
-  //private int currentView = Constants.ROBOT_VIEW;
   private string currentSceneName = "Title";
 
   void Awake()
@@ -111,8 +110,8 @@ public class GameManagerScript : MonoBehaviour {
     if (Input.GetKeyDown(KeyCode.Escape)) {
       if (menuWindow == null) {
         menuWindow = Instantiate(MenuObject, transform.position, transform.rotation);
-        // Show active upgrades in the ui
         Time.timeScale = 0;
+        // Show active upgrades in the ui
         Transform UIUpgrades = menuWindow.transform.Find("Canvas/Upgrades").transform;
         if (upgrades.hasBombs || upgrades.mgHasBombs) UIUpgrades.Find("Upgrade1").gameObject.SetActive(true);
         if (upgrades.hasLaser || upgrades.mgHasLaser) UIUpgrades.Find("Upgrade2").gameObject.SetActive(true);

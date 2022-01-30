@@ -13,6 +13,7 @@ public class ChangeSceneScript : MonoBehaviour {
   }
 
   public void changeScene(string sceneToLoad) {
+		Time.timeScale = 1;
     // Create a transition, who will call setView at an animation event
     GameObject transition = Instantiate(ScreenTransition, this.transform.position, this.transform.rotation);
     DontDestroyOnLoad(transition);
