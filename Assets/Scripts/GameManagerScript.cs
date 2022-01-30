@@ -19,6 +19,7 @@ public class GameManagerScript : MonoBehaviour {
 	private GameObject MenuWindow;
 	private Upgrades upgrades;
 	//private int currentView = Constants.ROBOT_VIEW;
+	private string currentSceneName = "Title";
 
 	void Start() {
 		upgrades = new Upgrades();
@@ -36,13 +37,17 @@ public class GameManagerScript : MonoBehaviour {
 		return upgrades;
 	}
 
+	public string getCurrentScene() {
+		return currentSceneName;
+	}
+
 	public void addUpgrade(string upgradeName) {
-    switch (upgradeName) {
-      case "Bombs": upgrades.hasBombs = true; break;
-      case "Laser": upgrades.hasLaser = true; break;
-      case "Vision": upgrades.hasVision = true; break;
-      case "Energy": upgrades.hasEnergy = true; break;
-    }
+		switch (upgradeName) {
+			case "Bombs": upgrades.hasBombs = true; break;
+			case "Laser": upgrades.hasLaser = true; break;
+			case "Vision": upgrades.hasVision = true; break;
+			case "Energy": upgrades.hasEnergy = true; break;
+		}
 	}
 
 	public void CloseMenuWindow(){
@@ -58,19 +63,21 @@ public class GameManagerScript : MonoBehaviour {
 	}
 
 	public void ChangeView(string sceneToLoad) {
-    int sceneId;
-    // Cant load scenes using a strings
-    switch (sceneToLoad) {
-      case "Title": sceneId = 0; break;
-      case "History": sceneId = 1; break;
-      case "Overworld": sceneId = 2; break;
-      case "Gate1": sceneId = 3; break;
-      case "Gate2": sceneId = 4; break;
-      case "Gate3": sceneId = 5; break;
-      case "Gate4": sceneId = 6; break;
-      case "Gameover": sceneId = 7; break;
-      default: sceneId = 0; break;
-    }
+		int sceneId;
+		// Cant load scenes using a strings
+		switch (sceneToLoad) {
+			case "Title": sceneId = 0; break;
+			case "History": sceneId = 1; break;
+			case "Overworld": sceneId = 2; break;
+			case "Gate1": sceneId = 3; break;
+			case "Gate2": sceneId = 4; break;
+			case "Gate3": sceneId = 5; break;
+			case "Gate4": sceneId = 6; break;
+			case "Gameover": sceneId = 7; break;
+			case "MinigameTest": sceneId = 8; break;
+			default: sceneId = 0; break;
+		}
+		currentSceneName = sceneToLoad;
 		SceneManager.LoadScene(sceneId, LoadSceneMode.Single);
 	}
 
