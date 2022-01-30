@@ -30,7 +30,7 @@ public class PlayerUI : MonoBehaviour
 
     void Damage()
     {
-        gm.mechaHealth -= 1;
+        gm.mechaHealth -= 2;
         hb.SetHealth(gm.mechaHealth);
 
         if (gm.mechaHealth <= 0)

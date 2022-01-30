@@ -12,17 +12,22 @@ public class GateActions : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
     }
-    
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (active)
-        {
-            MechaActions mecha = collision.GetComponent<MechaActions>();
+        MechaActions mecha = collision.GetComponent<MechaActions>();
 
-            if (mecha != null) 
-            {
-                gameManager.ChangeView("Gate" + gateNumber);
-            }
+        if (mecha != null) {
+						mecha.gateToEnter = "Gate" + gateNumber;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        MechaActions mecha = collision.GetComponent<MechaActions>();
+
+        if (mecha != null) {
+						mecha.gateToEnter = null;
         }
     }
 }

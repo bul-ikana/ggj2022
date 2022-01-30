@@ -1057,6 +1057,7 @@ MonoBehaviour:
   moveSpeed: 8
   maxWeapon: 1
   currentWeapon: 0
+  gateToEnter: 
 --- !u!114 &7907573957798299791
 MonoBehaviour:
   m_ObjectHideFlags: 0

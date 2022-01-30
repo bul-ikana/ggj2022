@@ -9,10 +9,14 @@ public class MechaActions : MonoBehaviour
     public int maxWeapon;
     public int currentWeapon;
 
+    public string gateToEnter;
+
     private MechaUI ui;
     private Rigidbody2D rb;
     private Transform shootPoint;
     private SoundManager audio;
+    private GameManagerScript gameManager;
+    private Upgrades upgrades;
 
     void Start()
     {
@@ -20,8 +24,12 @@ public class MechaActions : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         audio = GetComponent<SoundManager>();
         shootPoint = GameObject.Find("ShootPoint").transform;
-
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+				upgrades = gameManager.getPlayerUpgrades();
         ui.InitializeHealth();
+
+				// If there is a mecha position saved, move the mecha to that position
+				transform.position = gameManager.GetMechaSavedPosition();
     }
 
     public void SetHealth(int setHealth, int setMaxHealth)
@@ -77,6 +85,12 @@ public class MechaActions : MonoBehaviour
 
         audio.Play("heal");
         ui.UpdateHealth(health);
+    }
+
+    public void Disembark()
+    {
+				gameManager.SetMechaPosition(transform.position);
+				gameManager.ChangeView(gateToEnter);
     }
 
     void Die()

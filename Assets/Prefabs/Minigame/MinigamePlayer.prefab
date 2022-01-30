@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8305997028161216891}
   - component: {fileID: 8305997028161216894}
   - component: {fileID: 1722169512}
+  - component: {fileID: 7099047870829151964}
   m_Layer: 3
   m_Name: MinigamePlayer
   m_TagString: Player
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7854696665043301313, guid: e2ff87f36057c9f4ba949dc00be37b8f, type: 3}
+  m_Sprite: {fileID: -4091006264543148464, guid: 73bad94d4a33b07459b8198b5d73ad1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +106,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: 5f397a06ea07a084a94846028d693729, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &8305997028161216894
 BoxCollider2D:
@@ -120,18 +121,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.044591427, y: -0.31126118}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.532, y: 5.2}
+    oldSize: {x: 2.6, y: 5.2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3088732, y: 4.572071}
+  m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
 --- !u!95 &1722169512
 Animator:
@@ -152,6 +153,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7099047870829151964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8305997028161216884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2128bbac93cda7e4e9ff9befd93ff2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
+  jumpForce: 80
+  powerObtained: 
+  sceneBounds:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
 --- !u!1001 &8305997027291851620
 PrefabInstance:
   m_ObjectHideFlags: 0
