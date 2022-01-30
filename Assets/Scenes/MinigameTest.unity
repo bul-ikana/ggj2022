@@ -830,6 +830,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2752077942547158166, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752077942547158166, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8305997028161216884, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
       propertyPath: m_Name
       value: MinigamePlayer
@@ -880,3 +888,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42ebdd8d5ce87c94f9179602bc4741da, type: 3}
+--- !u!1001 &9197388774077647065
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9197388774643398347, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_Name
+      value: MinigameEnemySpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9197388774643398349, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: df66df98719de2c4595bd64d1def864f, type: 3}

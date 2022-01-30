@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2812070226837389343}
   - component: {fileID: 2812070226837389338}
   - component: {fileID: 2812070226837389339}
+  - component: {fileID: 4206590865809761219}
   m_Layer: 0
   m_Name: EnemyPrefab
   m_TagString: BulletStop
@@ -93,7 +94,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2812070226837389336}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -105,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!58 &2812070226837389338
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,7 +117,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -134,6 +135,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9942eea12f5b70d42a0f847b04165952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
   health: 120
+  damage: 40
+  speed: 2
   pelletDrop: 65
+--- !u!114 &4206590865809761219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812070226837389336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e95200e23ebc9b4ab1987dce0e16b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: damage
+    clip: {fileID: 8300000, guid: 275e1ee0258ef034aabf559ae8c06556, type: 3}

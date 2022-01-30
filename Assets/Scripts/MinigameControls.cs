@@ -47,7 +47,7 @@ public class MinigameControls : MonoBehaviour
     void LateUpdate()
     {
         newCameraPosition.x = Mathf.Max(0.0f,player.transform.position.x);
-        newCameraPosition.y = Mathf.Max(0.0f,player.transform.position.y);
+        newCameraPosition.y = player.transform.position.y;//Mathf.Max(0.0f,player.transform.position.y);
         newCameraPosition.z = transform.position.z;
         transform.position = newCameraPosition;
     }

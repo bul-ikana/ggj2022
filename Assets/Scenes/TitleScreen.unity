@@ -468,8 +468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 151}
-  m_SizeDelta: {x: 802.22, y: 117.16}
+  m_AnchoredPosition: {x: 0, y: 133.53}
+  m_SizeDelta: {x: 802.22, y: 152.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371705879
 MonoBehaviour:
@@ -504,7 +504,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SUPER GLOBAL GAME JAM XX3 ULTRA. CHUTULU CATS VERSION
+  m_Text: SUPER GLOBAL GAME JAM XX3 ULTRA. CHUTULU CATS VERSION XXXPussySlayersXXX
 --- !u!222 &371705880
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -645,6 +645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e816744eb532e499c09f42836e1397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mechaHealth: 300
+  mechaMaxHealth: 300
   MenuObject: {fileID: 4479683039119781916, guid: 0fa83b26cd0068c48838b19cc8478646, type: 3}
 --- !u!4 &434815679
 Transform:

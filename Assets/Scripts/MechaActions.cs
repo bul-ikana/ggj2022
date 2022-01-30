@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MechaActions : MonoBehaviour
 {
-    public int health;
-    public int maxHealth;
+    int health;
+    int maxHealth;
     public float moveSpeed;
 
     public int maxWeapon;
@@ -14,23 +14,28 @@ public class MechaActions : MonoBehaviour
     private MechaUI ui;
     private Rigidbody2D rb;
     private Transform shootPoint;
+    private SoundManager audio;
     private GameManagerScript gameManager;
-		private Upgrades upgrades;
-		
-		/*
-		Use ej: upgrades.hasBombs to check if the player has adquired certain upgrade
-		*/
+    private Upgrades upgrades;
+
     void Start()
     {
         ui = GetComponent<MechaUI>();
         rb = GetComponent<Rigidbody2D>();
+        audio = GetComponent<SoundManager>();
         shootPoint = GameObject.Find("ShootPoint").transform;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
 				upgrades = gameManager.getPlayerUpgrades();
-        ui.InitializeHealth(health, maxHealth);
+        ui.InitializeHealth();
 
 				// If there is a mecha position saved, move the mecha to that position
 				transform.position = gameManager.GetMechaSavedPosition();
+    }
+
+    public void SetHealth(int setHealth, int setMaxHealth)
+    {
+        health = setHealth;
+        maxHealth = setMaxHealth;
     }
 
     public void Move(Vector2 direction)
@@ -64,6 +69,8 @@ public class MechaActions : MonoBehaviour
             Die();
         }
 
+        ui.ShakeCamera(damage * 0.1f, 0.2f);
+        audio.Play("damage");
         ui.UpdateHealth(health);
     }
 
@@ -76,6 +83,7 @@ public class MechaActions : MonoBehaviour
             health = maxHealth;
         }
 
+        audio.Play("heal");
         ui.UpdateHealth(health);
     }
 
@@ -87,7 +95,7 @@ public class MechaActions : MonoBehaviour
 
     void Die()
     {
-      	gameManager.ChangeView("Gameover");
+        ui.GameOver();
         Destroy(this.gameObject);
     }
 }

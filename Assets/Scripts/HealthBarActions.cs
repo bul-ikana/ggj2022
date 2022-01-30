@@ -8,7 +8,7 @@ public class HealthBarActions : MonoBehaviour
     Slider slider;
     int maxHealth;
 
-    void Start()
+    void Awake()
     {
         slider = GetComponent<Slider>();
     }
