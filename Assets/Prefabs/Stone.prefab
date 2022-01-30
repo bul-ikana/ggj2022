@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6021733896284719113}
   - component: {fileID: 6021733896284719112}
   - component: {fileID: 6021733896284719115}
+  - component: {fileID: 381940669550393557}
   m_Layer: 0
   m_Name: Stone
   m_TagString: BulletStop
@@ -122,5 +123,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb04e298c312fd943b631161679e1b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 30
   damage: 10
+--- !u!114 &381940669550393557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021733896284719111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e95200e23ebc9b4ab1987dce0e16b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: damage
+    clip: {fileID: 8300000, guid: bd9dd50f0f18c66489791eedf9ac326c, type: 3}

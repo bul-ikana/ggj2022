@@ -7,6 +7,13 @@ public class StoneActions : MonoBehaviour
     public int health;
     public int damage;
 
+    protected SoundManager audio;
+
+    void Start()
+    {
+        audio = GetComponent<SoundManager>();
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         BulletActions bullet = collision.collider.GetComponent<BulletActions>();
@@ -28,11 +35,14 @@ public class StoneActions : MonoBehaviour
         if (health <= 0)
         {
             Die();
+        } else {
+            audio.Play("damage");
         }
     }
 
     void Die()
     {
+        Instantiate(Resources.Load("DestroyedStone"), transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
 }
