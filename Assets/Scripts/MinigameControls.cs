@@ -6,6 +6,7 @@ public class MinigameControls : MonoBehaviour
 {
     public float moveSpeed = 10.0f;
     public float jumpForce = 80.0f;
+    public string powerObtained = "";
 
     private Animator animator;
     private GameObject mainCamera;

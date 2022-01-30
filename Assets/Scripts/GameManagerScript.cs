@@ -8,6 +8,11 @@ public class Upgrades {
 	public bool hasLaser = false;
 	public bool hasVision = false;
 	public bool hasEnergy = false;
+
+	public bool mgHasBombs = false;
+	public bool mgHasLaser = false;
+	public bool mgHasVision = false;
+	public bool mgHasEnergy = false;
 }
 
 public class GameManagerScript : MonoBehaviour {
@@ -50,6 +55,15 @@ public class GameManagerScript : MonoBehaviour {
 		}
 	}
 
+	public void toggleMinigameUpgrade(string upgradeName) {
+		switch (upgradeName) {
+			case "Bombs": upgrades.mgHasBombs = !upgrades.mgHasBombs; break;
+			case "Laser": upgrades.mgHasLaser = !upgrades.mgHasLaser; break;
+			case "Vision": upgrades.mgHasVision = !upgrades.mgHasVision; break;
+			case "Energy": upgrades.mgHasEnergy = !upgrades.mgHasEnergy; break;
+		}
+	}
+
 	public void CloseMenuWindow(){
 		Destroy(MenuWindow);
 		Time.timeScale = 1;
@@ -87,10 +101,10 @@ public class GameManagerScript : MonoBehaviour {
 				// Show active upgrades in the ui
 				Time.timeScale = 0;
 				Transform UIUpgrades = MenuWindow.transform.Find("Canvas/Upgrades").transform;
-				if (upgrades.hasBombs) UIUpgrades.Find("Upgrade1").gameObject.SetActive(true);
-				if (upgrades.hasLaser) UIUpgrades.Find("Upgrade2").gameObject.SetActive(true);
-				if (upgrades.hasVision) UIUpgrades.Find("Upgrade3").gameObject.SetActive(true);
-				if (upgrades.hasEnergy) UIUpgrades.Find("Upgrade4").gameObject.SetActive(true);
+				if (upgrades.hasBombs || upgrades.mgHasBombs) UIUpgrades.Find("Upgrade1").gameObject.SetActive(true);
+				if (upgrades.hasLaser || upgrades.mgHasLaser) UIUpgrades.Find("Upgrade2").gameObject.SetActive(true);
+				if (upgrades.hasVision || upgrades.mgHasVision) UIUpgrades.Find("Upgrade3").gameObject.SetActive(true);
+				if (upgrades.hasEnergy || upgrades.mgHasEnergy) UIUpgrades.Find("Upgrade4").gameObject.SetActive(true);
 			}
 			else CloseMenuWindow();
 		}
