@@ -18,14 +18,41 @@ public class MechaUI : MonoBehaviour
     CinemachineVirtualCamera vcam;
     CinemachineBasicMultiChannelPerlin perlin;
 
+    Upgrades upgrades;
+    GateActions gate1;
+    GateActions gate2;
+    GateActions gate3;
+
     void Awake()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         vcam = GameObject.Find("Vcam").GetComponent<CinemachineVirtualCamera>();
         perlin = vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+        gate1 = GameObject.Find("Gate1").GetComponent<GateActions>();
+        gate2 = GameObject.Find("Gate2").GetComponent<GateActions>();
+        gate3 = GameObject.Find("Gate3").GetComponent<GateActions>();
+
     }
 
     void Start()
     {
+        upgrades = gm.getPlayerUpgrades();
+        if (upgrades.hasBombs)
+        {
+            gate1.DisableGate();
+        }
+
+        if (upgrades.hasLaser)
+        {
+            gate2.DisableGate();
+        }
+
+        if (upgrades.hasVision)
+        {
+            gate3.DisableGate();
+        }
+        
         bullets = new Image[] {
             GameObject.Find("Bullet1").GetComponent<Image>(),
             GameObject.Find("Bullet2").GetComponent<Image>(),
@@ -34,7 +61,6 @@ public class MechaUI : MonoBehaviour
 
         mecha = GameObject.Find("Mecha").GetComponent<MechaActions>();
         hb = GameObject.Find("HealthBar").GetComponent<HealthBarActions>();
-        gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
     }
 
     void Update()
