@@ -32,5 +32,15 @@ public class PlayerUI : MonoBehaviour
     {
         gm.mechaHealth -= 1;
         hb.SetHealth(gm.mechaHealth);
+
+        if (gm.mechaHealth <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        gm.ChangeView("Gameover");
     }
 }
