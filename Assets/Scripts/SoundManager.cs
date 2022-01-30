@@ -25,4 +25,12 @@ public class SoundManager : MonoBehaviour
             source.PlayOneShot(sound.clip);
         }
     }
+
+    public void PlayStay(string name)
+    {
+        Sound sound = Array.Find(sounds, sound => sound.name == name);
+        if (sound != null) {
+            AudioSource.PlayClipAtPoint(sound.clip, Camera.main.transform.position);
+        }
+    }
 }

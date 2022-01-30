@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4163595600710195130}
   - component: {fileID: 4941008272363426487}
   - component: {fileID: 8660968463650716669}
+  - component: {fileID: 6721569341064758047}
   m_Layer: 0
   m_Name: UpgradePrefab
   m_TagString: Untagged
@@ -123,3 +124,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeToAdd: 
+--- !u!114 &6721569341064758047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8672917087511201807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e95200e23ebc9b4ab1987dce0e16b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: take
+    clip: {fileID: 8300000, guid: bc3034c4142af654eaca04e59aa402a2, type: 3}
