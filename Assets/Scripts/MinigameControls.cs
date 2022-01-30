@@ -52,8 +52,26 @@ public class MinigameControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             Upgrades upgrades = gameManager.getPlayerUpgrades();
-            activePower = (activePower+1)%4;
-            animator.Play("HumanStand"+activePower);
+
+            List<string> powersList = new List<string>();
+            powersList.Add("0");
+            if (upgrades.hasBombs || upgrades.mgHasBombs) powersList.Add("1");
+            if (upgrades.hasLaser || upgrades.mgHasLaser) powersList.Add("2");
+            if (upgrades.hasVision || upgrades.mgHasVision) powersList.Add("3");
+            if (upgrades.hasEnergy || upgrades.mgHasEnergy) powersList.Add("4");
+
+            // public bool hasBombs = false;
+            // public bool hasLaser = false;
+            // public bool hasVision = false;
+            // public bool hasEnergy = false;
+
+            // public bool mgHasBombs = false;
+            // public bool mgHasLaser = false;
+            // public bool mgHasVision = false;
+            // public bool mgHasEnergy = false;
+            
+            activePower = (activePower+1)%powersList.Count;
+            animator.Play("HumanStand"+powersList[activePower]);
         }        
     }
 
