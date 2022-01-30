@@ -18,6 +18,8 @@ public class MinigameControls : MonoBehaviour
     private Vector3 newCameraPosition;
     private ContactPoint2D[] contacts = new ContactPoint2D[10];
     private Vector2 velocityHandler;
+    private int activePower = 0;
+    private GameManagerScript gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class MinigameControls : MonoBehaviour
         playerCollider = gameObject.GetComponent<Collider2D>();
         animator = gameObject.GetComponent<Animator>();
         mainCamera = GameObject.FindWithTag("MainCamera");
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
     }
 
     // Update is called once per frame
@@ -45,17 +48,25 @@ public class MinigameControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && verticalNormalSum > 0.0f)
         {
             playerBody.AddForce(new Vector2(0.0f,jumpForce),ForceMode2D.Impulse);
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Upgrades upgrades = gameManager.getPlayerUpgrades();
+            activePower = (activePower+1)%4;
+            animator.Play("HumanStand"+activePower);
         }        
     }
 
     void LateUpdate()
     {
         newCameraPosition.x = Mathf.Max(sceneBounds.xMin,Mathf.Min(sceneBounds.xMax,gameObject.transform.position.x));
-        // newCameraPosition.y = gameObject.transform.position.y;
         newCameraPosition.y = Mathf.Max(sceneBounds.yMax,Mathf.Min(sceneBounds.yMin,gameObject.transform.position.y));
         newCameraPosition.z = mainCamera.transform.position.z;
         mainCamera.transform.position = newCameraPosition;
+    }
 
+    void FixedUpdate()
+    {
         // Move Horizontal
         velocityHandler.x = horizontalMovement * moveSpeed;
         velocityHandler.y = playerBody.velocity.y;
@@ -69,10 +80,5 @@ public class MinigameControls : MonoBehaviour
 				else animator.SetBool("isMoving", false);
 				if (playerBody.velocity.y != 0f) animator.SetBool("isJumping", true);
 				else animator.SetBool("isJumping", false);
-    }
-
-    void FixedUpdate()
-    {
-        
     }
 }
