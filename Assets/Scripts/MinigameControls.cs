@@ -81,4 +81,10 @@ public class MinigameControls : MonoBehaviour
 				if (playerBody.velocity.y != 0f) animator.SetBool("isJumping", true);
 				else animator.SetBool("isJumping", false);
     }
+
+    void OnDestroy()
+    {
+        GameManagerScript gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+        gm.toggleMinigameUpgrade(powerObtained);
+    }
 }
