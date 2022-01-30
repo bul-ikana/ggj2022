@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MinigameControls : MonoBehaviour
 {
-    public GameObject player;
     public float moveSpeed = 10.0f;
     public float jumpForce = 80.0f;
+    public string powerObtained = "";
 
     private Animator animator;
+    private GameObject mainCamera;
     private Rigidbody2D playerBody;
     private Collider2D playerCollider;
     private float horizontalMovement = 0.0f;
@@ -20,9 +21,10 @@ public class MinigameControls : MonoBehaviour
     void Start()
     {
         // Rigid body and collider from player object
-        playerBody = player.GetComponent<Rigidbody2D>();
-        playerCollider = player.GetComponent<Collider2D>();
-        animator = player.GetComponent<Animator>();
+        playerBody = gameObject.GetComponent<Rigidbody2D>();
+        playerCollider = gameObject.GetComponent<Collider2D>();
+        animator = gameObject.GetComponent<Animator>();
+        mainCamera = GameObject.FindWithTag("MainCamera");
     }
 
     // Update is called once per frame
@@ -46,10 +48,10 @@ public class MinigameControls : MonoBehaviour
 
     void LateUpdate()
     {
-        newCameraPosition.x = Mathf.Max(0.0f,player.transform.position.x);
-        newCameraPosition.y = player.transform.position.y;//Mathf.Max(0.0f,player.transform.position.y);
-        newCameraPosition.z = transform.position.z;
-        transform.position = newCameraPosition;
+        newCameraPosition.x = Mathf.Max(0.0f,gameObject.transform.position.x);
+        newCameraPosition.y = gameObject.transform.position.y;//Mathf.Max(0.0f,gameObject.transform.position.y);
+        newCameraPosition.z = mainCamera.transform.position.z;
+        mainCamera.transform.position = newCameraPosition;
     }
 
     void FixedUpdate()
@@ -59,8 +61,8 @@ public class MinigameControls : MonoBehaviour
         velocityHandler.y = playerBody.velocity.y;
         playerBody.velocity = velocityHandler;
 
-				if (horizontalMovement < 0) player.GetComponent<SpriteRenderer>().flipX = true;
-				else if (horizontalMovement > 0) player.GetComponent<SpriteRenderer>().flipX = false;
+				if (horizontalMovement < 0) gameObject.GetComponent<SpriteRenderer>().flipX = true;
+				else if (horizontalMovement > 0) gameObject.GetComponent<SpriteRenderer>().flipX = false;
 
 				// Animation control
 				if (horizontalMovement != 0f) animator.SetBool("isMoving", true);

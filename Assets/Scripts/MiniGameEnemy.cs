@@ -31,11 +31,16 @@ public class MiniGameEnemy : MonoBehaviour
     {
         if (collision.tag == "Player") 
         {
+            string upgrade = collision.gameObject.GetComponent<MinigameControls>().powerObtained;
+            gameManager.toggleMinigameUpgrade(upgrade);  
             gameManager.ChangeView(gameManager.getCurrentScene());
         }
         else if(collision.tag == "MinigameEnemyReverser"){
             direction = -direction;
             rb.AddForce(new Vector2(2*direction*speedForce,0.0f),ForceMode2D.Impulse);
+        }
+        else if(collision.tag == "MinigameEnemyDestroyer"){
+            Destroy(gameObject);
         }
         else if(Mathf.Abs(rb.velocity.x) < Mathf.Abs(speedForce) && !moveInit){
             moveInit = true;

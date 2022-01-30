@@ -11,9 +11,10 @@ public class GetUpgradeScript : MonoBehaviour
 	{
 		if (collision.tag == "Player")
 		{
-        GameManagerScript gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
-				gm.addUpgrade(upgradeToAdd);
-				Destroy(this.gameObject);
+			collision.gameObject.GetComponent<MinigameControls>().powerObtained = upgradeToAdd;
+        	GameManagerScript gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+			gm.toggleMinigameUpgrade(upgradeToAdd);
+			Destroy(this.gameObject);
 		}
 	}
 }

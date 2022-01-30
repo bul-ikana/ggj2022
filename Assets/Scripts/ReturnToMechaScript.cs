@@ -9,8 +9,11 @@ public class ReturnToMechaScript : MonoBehaviour
 	{
 		if (collision.tag == "Player")
 		{
-				GetComponent<ChangeSceneScript>().changeScene("Overworld");
-				Destroy(this);
+			string upgradeToAdd = collision.gameObject.GetComponent<MinigameControls>().powerObtained;
+        	GameManagerScript gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+			gm.addUpgrade(upgradeToAdd);
+        	gameObject.GetComponent<ChangeSceneScript>().changeScene("Overworld");
+			Destroy(this);
 		}
 	}
 }

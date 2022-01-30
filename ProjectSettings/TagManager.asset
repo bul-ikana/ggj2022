@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BulletStop
   - MinigameEnemyReverser
+  - MinigameEnemyDestroyer
   layers:
   - Default
   - TransparentFX
