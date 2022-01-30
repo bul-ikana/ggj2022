@@ -89,7 +89,7 @@ public class MechaActions : MonoBehaviour
 
     public void Disembark()
     {
-				gameManager.SaveMechaPosition(transform);
+				gameManager.SetMechaPosition(transform.position);
 				gameManager.ChangeView(gateToEnter);
     }
 
