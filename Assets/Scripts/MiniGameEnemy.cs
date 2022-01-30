@@ -24,7 +24,8 @@ public class MiniGameEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (direction < 0) gameObject.GetComponent<SpriteRenderer>().flipX = true;
+		else if (direction > 0) gameObject.GetComponent<SpriteRenderer>().flipX = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
