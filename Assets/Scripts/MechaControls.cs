@@ -18,7 +18,6 @@ public class MechaControls : MonoBehaviour
         RotateMechaToCursor();
 
         ListenForShoots();
-        ListenForWeaponChanges();
     }
 
     void MoveMecha()
@@ -68,14 +67,6 @@ public class MechaControls : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             mecha.Shoot();
-        }
-    }
-
-    void ListenForWeaponChanges()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            mecha.ChangeWeapon();
         }
     }
 }

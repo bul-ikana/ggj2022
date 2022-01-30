@@ -53,13 +53,6 @@ public class MechaActions : MonoBehaviour
         Instantiate(Resources.Load("Bullet" + (currentWeapon + 1) + "Prefab"), shootPoint.position, shootPoint.rotation);
     }
 
-    public void ChangeWeapon()
-    {
-        currentWeapon = (currentWeapon + 1) % maxWeapon;
-
-        ui.UpdateWeapon(currentWeapon);
-    }
-
     public void Damage(int damage)
     {
         health -= damage;

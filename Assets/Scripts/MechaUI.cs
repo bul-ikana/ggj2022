@@ -11,7 +11,6 @@ public class MechaUI : MonoBehaviour
 {
     float shakeTime = 0;
 
-    Image[] bullets;
     MechaActions mecha;
     HealthBarActions hb;
     GameManagerScript gm;
@@ -52,12 +51,6 @@ public class MechaUI : MonoBehaviour
         {
             gate3.DisableGate();
         }
-        
-        bullets = new Image[] {
-            GameObject.Find("Bullet1").GetComponent<Image>(),
-            GameObject.Find("Bullet2").GetComponent<Image>(),
-            GameObject.Find("Bullet3").GetComponent<Image>()
-        };
 
         mecha = GameObject.Find("Mecha").GetComponent<MechaActions>();
         hb = GameObject.Find("HealthBar").GetComponent<HealthBarActions>();
@@ -83,12 +76,6 @@ public class MechaUI : MonoBehaviour
     {
         gm.mechaHealth = health;
         hb.SetHealth(health);
-    }
-
-    public void UpdateWeapon(int weapon)
-    {
-        Array.ForEach(bullets, bullet => bullet.enabled = false);
-        bullets[weapon].enabled = true;
     }
 
     public void ShakeCamera(float intensity, float time)
