@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b917e9946c757ec418856655d88778b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3000
+  health: 2000
   damage: 100
   speed: 0.7
   pelletDrop: 0

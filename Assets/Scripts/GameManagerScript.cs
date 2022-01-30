@@ -92,6 +92,7 @@ public class GameManagerScript : MonoBehaviour {
       case "Gate3": sceneId = 5; break;
       case "Gate4": sceneId = 6; break;
       case "Gameover": sceneId = 7; break;
+      case "Credits": sceneId = 8; break;
       default: sceneId = 0; break;
     }
     currentSceneName = sceneToLoad;

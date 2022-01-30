@@ -85,6 +85,7 @@ public class FinalBossActions : EnemyActions
     protected override void Die()
     {
         Instantiate(Resources.Load("DestroyedBoss"), transform.position, transform.rotation);
+        Instantiate(Resources.Load("Artifact"), transform.position, transform.rotation);
 
         Destroy(gameObject);
     }
