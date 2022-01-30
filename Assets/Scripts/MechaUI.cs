@@ -29,11 +29,15 @@ public class MechaUI : MonoBehaviour
         vcam = GameObject.Find("Vcam").GetComponent<CinemachineVirtualCamera>();
         perlin = vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
-        upgrades = gm.getPlayerUpgrades();
         gate1 = GameObject.Find("Gate1").GetComponent<GateActions>();
         gate2 = GameObject.Find("Gate2").GetComponent<GateActions>();
         gate3 = GameObject.Find("Gate3").GetComponent<GateActions>();
 
+    }
+
+    void Start()
+    {
+        upgrades = gm.getPlayerUpgrades();
         if (upgrades.hasBombs)
         {
             gate1.DisableGate();
@@ -48,10 +52,7 @@ public class MechaUI : MonoBehaviour
         {
             gate3.DisableGate();
         }
-    }
-
-    void Start()
-    {
+        
         bullets = new Image[] {
             GameObject.Find("Bullet1").GetComponent<Image>(),
             GameObject.Find("Bullet2").GetComponent<Image>(),

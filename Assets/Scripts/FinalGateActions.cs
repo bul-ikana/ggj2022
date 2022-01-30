@@ -10,6 +10,8 @@ public class FinalGateActions : MonoBehaviour
     Upgrades upgrades;
     GameManagerScript gm;
 
+    bool active = false;
+
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
@@ -33,5 +35,52 @@ public class FinalGateActions : MonoBehaviour
         {
             gem3.SetActive(false);
         }
+
+        if (
+            upgrades.hasBombs &&
+            upgrades.hasLaser &&
+            upgrades.hasVision
+        ) {
+            active = true;
+            transform.GetChild(3).GetComponent<Light>().enabled = true;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!active || gm.mechaAtGate)
+        {
+            return;
+        }
+
+        MechaActions mecha = collision.GetComponent<MechaActions>();
+
+        if (mecha != null) {
+            gm.mechaAtGate = true;
+            gm.SetMechaPosition(mecha.transform.position);
+            gm.ChangeView("Gate4");
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!active || !gm.mechaAtGate)
+        {
+            return;
+        }
+
+        MechaActions mecha = collision.GetComponent<MechaActions>();
+
+        if (mecha != null) {
+            gm.mechaAtGate = false;
+            TriggerFinalBoss();
+        }
+    }
+
+    void TriggerFinalBoss()
+    {
+        Instantiate(Resources.Load("FinalBossPrefab"), transform.position, transform.rotation);
+
+        Destroy(this.gameObject);
     }
 }
