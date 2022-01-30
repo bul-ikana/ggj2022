@@ -31,8 +31,6 @@ public class MiniGameEnemy : MonoBehaviour
     {
         if (collision.tag == "Player") 
         {
-            string upgrade = collision.gameObject.GetComponent<MinigameControls>().powerObtained;
-            gameManager.toggleMinigameUpgrade(upgrade);  
             gameManager.ChangeView(gameManager.getCurrentScene());
         }
         else if(collision.tag == "MinigameEnemyReverser"){
