@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateNumber: 1
   active: 1
+  disabledSprite: {fileID: 0}
 --- !u!114 &-2734398723620628458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,4 +223,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.59
+  m_Radius: 0.75194633
