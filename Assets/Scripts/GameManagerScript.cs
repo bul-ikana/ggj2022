@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Upgrades {
-  public bool hasBombs = true;
-  public bool hasLaser = true;
-  public bool hasVision = true;
+  public bool hasBombs = false;
+  public bool hasLaser = false;
+  public bool hasVision = false;
   public bool hasEnergy = false;
 
   public bool mgHasBombs = false;
