@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Upgrades {
   public bool hasBombs = false;
-  public bool hasLaser = false;
-  public bool hasVision = false;
+  public bool hasLaser = true;
+  public bool hasVision = true;
   public bool hasEnergy = false;
 
   public bool mgHasBombs = false;
@@ -18,6 +18,7 @@ public class Upgrades {
 public class GameManagerScript : MonoBehaviour {
   public int mechaHealth;
   public int mechaMaxHealth;
+  public bool mechaAtGate;
 
   public GameObject MenuObject;
   private static bool existsAlready = false;
@@ -27,8 +28,12 @@ public class GameManagerScript : MonoBehaviour {
   //private int currentView = Constants.ROBOT_VIEW;
   private string currentSceneName = "Title";
 
-  void Start() {
+  void Awake()
+  {
     upgrades = new Upgrades();
+  }
+
+  void Start() {
     // Limit application to 60 FPS
     Application.targetFrameRate = 60;
     // Keep global object between scenes

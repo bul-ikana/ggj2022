@@ -87,12 +87,6 @@ public class MechaActions : MonoBehaviour
         ui.UpdateHealth(health);
     }
 
-    public void Disembark()
-    {
-				gameManager.SetMechaPosition(transform.position);
-				gameManager.ChangeView(gateToEnter);
-    }
-
     void Die()
     {
         ui.GameOver();

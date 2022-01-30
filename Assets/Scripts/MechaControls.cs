@@ -16,7 +16,6 @@ public class MechaControls : MonoBehaviour
     {
         MoveMecha();
         RotateMechaToCursor();
-				ListenForGates();
 
         ListenForShoots();
         ListenForWeaponChanges();
@@ -77,14 +76,6 @@ public class MechaControls : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             mecha.ChangeWeapon();
-        }
-    }
-
-    void ListenForGates()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && mecha.gateToEnter != null)
-        {
-            mecha.Disembark();
         }
     }
 }
