@@ -19,7 +19,7 @@ public class GetUpgradeScript : MonoBehaviour
 		if (collision.tag == "Player")
 		{
 			audio.PlayStay("take");
-			collision.gameObject.GetComponent<MinigameControls>().powerObtained = upgradeToAdd;
+			collision.gameObject.GetComponent<MinigameControls>().powersObtained.Add(upgradeToAdd);
         	GameManagerScript gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
 			gm.toggleMinigameUpgrade(upgradeToAdd);
 			Destroy(this.gameObject);

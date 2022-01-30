@@ -7,12 +7,12 @@ public class Upgrades {
   public bool hasBombs = false;
   public bool hasLaser = false;
   public bool hasVision = false;
-  public bool hasEnergy = false;
+  public bool hasEnergy = true;
 
   public bool mgHasBombs = false;
   public bool mgHasLaser = false;
   public bool mgHasVision = false;
-  public bool mgHasEnergy = false;
+  public bool mgHasEnergy = true;
 }
 
 public class GameManagerScript : MonoBehaviour {
@@ -116,7 +116,7 @@ public class GameManagerScript : MonoBehaviour {
         if (upgrades.hasBombs || upgrades.mgHasBombs) UIUpgrades.Find("Upgrade1").gameObject.SetActive(true);
         if (upgrades.hasLaser || upgrades.mgHasLaser) UIUpgrades.Find("Upgrade2").gameObject.SetActive(true);
         if (upgrades.hasVision || upgrades.mgHasVision) UIUpgrades.Find("Upgrade3").gameObject.SetActive(true);
-        if (upgrades.hasEnergy || upgrades.mgHasEnergy) UIUpgrades.Find("Upgrade4").gameObject.SetActive(true);
+        // if (upgrades.hasEnergy || upgrades.mgHasEnergy) UIUpgrades.Find("Upgrade4").gameObject.SetActive(true);
       }
       else CloseMenuWindow();
     }

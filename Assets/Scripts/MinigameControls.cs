@@ -6,7 +6,7 @@ public class MinigameControls : MonoBehaviour
 {
     public float moveSpeed = 10.0f;
     public float jumpForce = 80.0f;
-    public string powerObtained = "";
+    public List<string> powersObtained;
 
     public Rect sceneBounds;
 
@@ -58,7 +58,7 @@ public class MinigameControls : MonoBehaviour
             if (upgrades.hasBombs || upgrades.mgHasBombs) powersList.Add("1");
             if (upgrades.hasLaser || upgrades.mgHasLaser) powersList.Add("2");
             if (upgrades.hasVision || upgrades.mgHasVision) powersList.Add("3");
-            if (upgrades.hasEnergy || upgrades.mgHasEnergy) powersList.Add("4");
+            // if (upgrades.hasEnergy || upgrades.mgHasEnergy) powersList.Add("4");
 
             // public bool hasBombs = false;
             // public bool hasLaser = false;
@@ -102,7 +102,12 @@ public class MinigameControls : MonoBehaviour
 
     void OnDestroy()
     {
+        powersObtained.ForEach(toggleUpgrde);
+    }
+
+    void toggleUpgrde(string name)
+    {
         GameManagerScript gm = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
-        gm.toggleMinigameUpgrade(powerObtained);
+        gm.toggleMinigameUpgrade(name);
     }
 }
