@@ -3,15 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BulletStop
+  - MinigameEnemyReverser
+  - MinigameEnemyDestroyer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Players
   - Water
   - UI
-  - 
+  - MinigameEnemies
   - 
   - 
   - 
@@ -38,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 1808222167
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
