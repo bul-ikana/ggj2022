@@ -19,8 +19,8 @@ public class MechaUI : MonoBehaviour
 
     Upgrades upgrades;
     GateActions gate1;
-    GateActions gate2;
-    GateActions gate3;
+    // GateActions gate2;
+    // GateActions gate3;
 
     void Awake()
     {
@@ -29,8 +29,8 @@ public class MechaUI : MonoBehaviour
         perlin = vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
         gate1 = GameObject.Find("Gate1").GetComponent<GateActions>();
-        gate2 = GameObject.Find("Gate2").GetComponent<GateActions>();
-        gate3 = GameObject.Find("Gate3").GetComponent<GateActions>();
+        // gate2 = GameObject.Find("Gate2").GetComponent<GateActions>();
+        // gate3 = GameObject.Find("Gate3").GetComponent<GateActions>();
 
     }
 
@@ -44,12 +44,12 @@ public class MechaUI : MonoBehaviour
 
         if (upgrades.hasLaser)
         {
-            gate2.DisableGate();
+            // gate2.DisableGate();
         }
 
         if (upgrades.hasVision)
         {
-            gate3.DisableGate();
+            // gate3.DisableGate();
         }
 
         mecha = GameObject.Find("Mecha").GetComponent<MechaActions>();

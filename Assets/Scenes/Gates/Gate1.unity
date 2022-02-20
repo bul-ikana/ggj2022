@@ -201,6 +201,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1241719146}
     m_Modifications:
+    - target: {fileID: 9197388774643398346, guid: df66df98719de2c4595bd64d1def864f, type: 3}
+      propertyPath: spawnInterval
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9197388774643398347, guid: df66df98719de2c4595bd64d1def864f, type: 3}
       propertyPath: m_Name
       value: MinigameEnemySpawner
